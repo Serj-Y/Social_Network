@@ -4,7 +4,6 @@ import * as axios from "axios";
 import userPhotoDefault from '../../../assets/img/4314581-200.png'
 
 class Users extends React.Component {
-
     constructor(props) {
         super(props);
         axios.get("https://social-network.samuraijs.com/api/1.0/users")
@@ -12,17 +11,9 @@ class Users extends React.Component {
                 props.setUsers(response.data.items);
             });
     }
-
-    //getUsers = () => {
-    // axios.get("https://social-network.samuraijs.com/api/1.0/users")
-    //   .then(response => {
-    //        this.props.setUsers(response.data.items);
-    //    });
-    // }
-
     render() {
         return <div>
-          <button onClick={this.getUsers} >getUsers</button>
+            <button onClick={this.getUsers} >getUsers</button>
             {
                 this.props.users.map(u => <div key={u.id}>
                     <span >
@@ -47,7 +38,6 @@ class Users extends React.Component {
                     </span>
                 </div>)
             }
-
         </div>
     }
 }

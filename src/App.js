@@ -9,7 +9,7 @@ import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import DialogsContainer from './components/Content/Dialogs/DialogsContainer';
 import UsersContainer from './components/Content/Users/UsersContainer';
-
+//pula
 const App = (props) => {
   return (
     <div className='app-wrapper' >

@@ -1,0 +1,18 @@
+.nav {
+  grid-area: n;
+  background-color: brown;
+  padding: 20px;
+  text-align: center;
+  
+}
+
+ .item a{
+    text-decoration: none;
+  color: aliceblue;
+
+}
+
+a.active {
+text-decoration: solid;
+  color: rgb(0, 0, 0);
+}

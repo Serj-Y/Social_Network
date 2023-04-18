@@ -1,0 +1,14 @@
+.header {
+grid-area: h;
+}
+
+
+header img {
+  border-radius: 22px;
+  width: 55px;
+  height: 55px;
+
+}
+header {
+  background-color: brown;
+}

@@ -1,3 +1,6 @@
 npm install react-router
 -dom -save 
 dlia routinga i dobavlenia v paceg.json
+ndonvsdkjssjkns
+fwofejnefd
+

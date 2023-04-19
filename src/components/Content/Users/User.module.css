@@ -3,5 +3,9 @@
     max-width: 100px;
 }
  
+ .selectedPage {
+   color: red;
+    text-decoration: solid;
+ }
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Content from './components/Content/Content';
+import Profile from './components/Profile/Profile'
 import Music from './components/Content/Music/Music';
 import News from './components/Content/News/News';
 import Settings from './components/Content/Settings/Settings';
@@ -16,7 +16,7 @@ const App = (props) => {
       <Nav />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/profile' element={<Content />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/messages' element={<DialogsContainer />} />
           <Route path='/users' element={<UsersContainer/>} />
           <Route path='/news' element={<News />} />

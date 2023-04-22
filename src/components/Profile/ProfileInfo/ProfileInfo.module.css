@@ -1,3 +1,8 @@
 .descriptionBlock {
     padding: 10px;
+    
+}
+img{
+   max-height: fit-content;
+   max-width: fit-content;
 }

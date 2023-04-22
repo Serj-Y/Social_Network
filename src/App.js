@@ -2,13 +2,13 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Profile from './components/Profile/Profile'
-import Music from './components/Content/Music/Music';
-import News from './components/Content/News/News';
-import Settings from './components/Content/Settings/Settings';
+import Music from './components/Music/Music';
+import News from './components/News/News';
+import Settings from './components/Settings/Settings';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
-import DialogsContainer from './components/Content/Dialogs/DialogsContainer';
-import UsersContainer from './components/Content/Users/UsersContainer';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 const App = (props) => {
   return (
     <div className='app-wrapper' >

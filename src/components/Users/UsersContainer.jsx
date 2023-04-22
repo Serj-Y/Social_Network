@@ -1,9 +1,9 @@
 import React from "react";
 import Users from "./Users";
 import { connect } from "react-redux";
-import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from "../../../Redux/usersReducer";
+import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from "../../Redux/usersReducer";
 import * as axios from "axios";
-import Preloader from "../../Common/Preloader/Preloader"
+import Preloader from "../../components/Common/Preloader/Preloader"
 
 
 class UsersApiComponent extends React.Component {

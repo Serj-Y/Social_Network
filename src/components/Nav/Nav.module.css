@@ -3,16 +3,18 @@
   background-color: brown;
   padding: 20px;
   text-align: center;
+   
+}
+
+.active .item {
+  color: black;
   
 }
 
- .item a{
-    text-decoration: none;
+ .item {
+   text-decoration: none;
   color: aliceblue;
+  
 
 }
 
-a.active {
-text-decoration: solid;
-  color: rgb(0, 0, 0);
-}

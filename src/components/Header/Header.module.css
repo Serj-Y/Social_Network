@@ -12,3 +12,10 @@ header img {
 header {
   background-color: brown;
 }
+.loginBlock{
+  float: right;
+}
+.loginBlock a{
+  color: white;
+  text-decoration: solid;
+}

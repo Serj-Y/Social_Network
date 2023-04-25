@@ -16,15 +16,15 @@ export const getUsers = (currentPage, pageSize) => {
         })
 };
 
-export const getFollow = (u) => {
-    return instance.delete(`follow/${u.id}`)
+export const getFollow = (id) => {
+    return instance.delete(`follow/${id}`)
         .then(response => {
             return response.data;
         })
 };
 
-export const getUnfolow = (u) => {
-    return instance.post(`follow/${u.id}`)
+export const getUnfolow = (id) => {
+    return instance.post(`follow/${id}`)
         .then(response => {
             return response.data;
         })

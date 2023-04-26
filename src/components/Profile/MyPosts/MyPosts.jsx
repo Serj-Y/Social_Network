@@ -20,14 +20,14 @@ const MyPosts = (props) => {
     }
 
     return <div className={s.postsBlock}>
-        <h2>Snizu mojno napisati tvoio nahui nikomu ne nujnoe mnenie</h2>
+        <h2>Posts</h2>
         <div>
             <textarea onChange={onPostChange}
                 ref={newPostElement}
                 placeholder="Enter your post"
                 value={props.newPostText} />
             <div>
-                <button onClick={onAddPost}>Zadushniti dlia vseh</button>
+                <button onClick={onAddPost}>Post</button>
             </div>
         </div>
         <div className={s.posts}>

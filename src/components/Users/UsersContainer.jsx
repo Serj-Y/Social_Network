@@ -1,9 +1,9 @@
 import React from "react";
 import Users from "./Users";
 import { connect } from "react-redux";
-import { follow, unFollow, setCurrentPage, toggleFollowingInProgress } from "../../Redux/usersReducer";
+import { follow, unFollow, setCurrentPage, toggleFollowingInProgress, getUsers } from "../../Redux/usersReducer";
 import Preloader from "../../components/Common/Preloader/Preloader"
-import { getUsers } from "../../Redux/usersReducer";
+
 
 class UsersApiComponent extends React.Component {
     componentDidMount() {

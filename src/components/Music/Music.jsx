@@ -4,8 +4,8 @@ import s from './Music.module.css'
 const Music = () => {
     return (
 <div className={s.Music}>
-    <h1>Ebati Ti Lox</h1>
-    <h2>Gliani i Setings</h2>
+    <h1>Music</h1>
+
 </div>
     )
 }

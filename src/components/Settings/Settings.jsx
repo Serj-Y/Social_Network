@@ -4,8 +4,7 @@ import s from './Settings.module.css';
 const Settings = () => {
     return (
         <div className={s.Settings}>
-            <h1>Ti coneshno Loh</h1>
-            <h2>No molodet chto doshol do contsa</h2>
+            <h1>Settings</h1>
         </div>
     )
 }

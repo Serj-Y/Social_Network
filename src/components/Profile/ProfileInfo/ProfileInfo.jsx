@@ -15,7 +15,7 @@ if (!props.profile) {
         </div>
         <div className={s.descriptionBlock}>
             <img src={props.profile.photos.large}></img>
-            Tut budet tvoio rilo
+            Description?
             </div>
     </div>
 }

@@ -1,19 +1,16 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { setUserProfile } from "../../Redux/profileReducer";
+import { setUserProfile, profileContent} from "../../Redux/profileReducer";
 import { withRouter } from "react-router-dom/cjs/react-router-dom";
-import { socialNetworkApi } from "../../apiComponents/Api";
+
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = 2;
         }
-        socialNetworkApi.getProfileContent(userId)
-            .then(data => {
-                this.props.setUserProfile(data);
-            });
+        this.props.profileContent(userId)
     }
     render() {
         return (
@@ -29,4 +26,7 @@ let mapStateToProps = (state) => ({
 let WithUrlDataContainerComponent = withRouter(ProfileContainer);
 
 
-export default connect(mapStateToProps, { setUserProfile })(WithUrlDataContainerComponent);
+export default connect(mapStateToProps, { 
+    setUserProfile,
+    profileContent,
+ })(WithUrlDataContainerComponent);

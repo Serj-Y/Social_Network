@@ -1,29 +1,17 @@
 import React from "react";
 import Users from "./Users";
 import { connect } from "react-redux";
-import { follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingInProgress } from "../../Redux/usersReducer";
+import { follow, unFollow, setCurrentPage, toggleFollowingInProgress } from "../../Redux/usersReducer";
 import Preloader from "../../components/Common/Preloader/Preloader"
-import { getUsers } from "../../apiComponents/Api.js";
+import { getUsers } from "../../Redux/usersReducer";
 
 class UsersApiComponent extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount);
-
-            });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.toggleIsFetching(true);
-        getUsers(pageNumber, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items);
-            });
+        this.props.getUsers(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -39,7 +27,6 @@ class UsersApiComponent extends React.Component {
                 users={this.props.users}
                 follow={this.props.follow}
                 unFollow={this.props.unFollow}
-                toggleFollowingInProgress={this.props.toggleFollowingInProgress}
                 followingInProgress={this.props.followingInProgress}
             />
         </>
@@ -59,11 +46,9 @@ let mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
+    getUsers,
     follow,
     unFollow,
-    setUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    toggleIsFetching,
     toggleFollowingInProgress,
 })(UsersApiComponent);

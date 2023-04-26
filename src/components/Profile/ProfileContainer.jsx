@@ -3,14 +3,14 @@ import Profile from "./Profile";
 import { connect } from "react-redux";
 import { setUserProfile } from "../../Redux/profileReducer";
 import { withRouter } from "react-router-dom/cjs/react-router-dom";
-import { getProfileContent } from "../../apiComponents/Api";
+import { socialNetworkApi } from "../../apiComponents/Api";
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = 2;
         }
-        getProfileContent(userId)
+        socialNetworkApi.getProfileContent(userId)
             .then(data => {
                 this.props.setUserProfile(data);
             });

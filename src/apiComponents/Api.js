@@ -23,7 +23,7 @@ export const getFollow = (id) => {
         })
 };
 
-export const getUnfolow = (id) => {
+export const getUnFollow = (id) => {
     return instance.post(`follow/${id}`)
         .then(response => {
             return response.data;

@@ -6,8 +6,8 @@ const SET_USER_PROFILE = 'SET-USER-PROFILE';
 
 let initialState = {
     posts: [
-        { id: 1, message: 'Sho ti', likesCount: 13 },
-        { id: 2, message: 'Zdorova zaibal', likesCount: 24 },
+        { id: 1, message: 'Hi', likesCount: 13 },
+        { id: 2, message: 'Hello World', likesCount: 24 },
         { id: 3, message: 'post', likesCount: 83 },
         { id: 4, message: '(;', likesCount: 39 },
         { id: 5, message: '):', likesCount: 45 },

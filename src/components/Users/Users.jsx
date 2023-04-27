@@ -2,12 +2,14 @@ import React from "react";
 import s from './User.module.css'
 import userPhotoDefault from '../../assets/img/4314581-200.png'
 import { NavLink } from "react-router-dom";
-
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) { pages.push(i); }
+
+    if (props.isAuth === false) return <Redirect to={"/Login"} />
     return (
         <div>
             <div>
@@ -27,7 +29,7 @@ let Users = (props) => {
                         <div>
                             {u.followed
                                 ? <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                    onClick={() => { props.unFollow(u.id) }} >unFollow</button>
+                                    onClick={() => { props.unFollow(u.id) } } >unFollow</button>
                                 : <button disabled={props.followingInProgress.some(id => id === u.id)}
                                     onClick={() => { props.follow(u.id) }} >Follow</button>
                             }

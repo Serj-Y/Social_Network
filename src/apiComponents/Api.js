@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 
-export const socialNetworkApi = {
+export const usersApi = {
     getUsers(currentPage, pageSize) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => {
@@ -27,12 +27,7 @@ export const socialNetworkApi = {
                 return response.data;
             })
     },
-    getLoginData() {
-        return instance.get(`auth/me`)
-            .then(response => {
-                return response.data;
-            })
-    },
+  
     getProfileContent(userId) {
         return instance.get(`profile/` + userId)
             .then(response => {
@@ -40,6 +35,15 @@ export const socialNetworkApi = {
             })
     }
 
+}
+
+export const authApi = {
+      getLoginData() {
+        return instance.get(`auth/me`)
+            .then(response => {
+                return response.data;
+            })
+    },
 }
 
 

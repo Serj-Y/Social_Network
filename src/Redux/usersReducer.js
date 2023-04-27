@@ -1,4 +1,4 @@
-import { socialNetworkApi } from "../apiComponents/Api";
+import { usersApi } from "../apiComponents/Api";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -90,7 +90,7 @@ export const toggleFollowingInProgress = (isFetching, userId) => ({ type: TOGGLE
 export const getUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
-        socialNetworkApi.getUsers(currentPage, pageSize)
+        usersApi.getUsers(currentPage, pageSize)
             .then(data => {
                 dispatch(toggleIsFetching(false));
                 dispatch(setUsers(data.items));
@@ -102,7 +102,7 @@ export const getUsers = (currentPage, pageSize) => {
 export const follow = (userId) => {
     return (dispatch) => {
         dispatch(toggleFollowingInProgress(true, userId))
-        socialNetworkApi.follow(userId)
+        usersApi.follow(userId)
             .then(data => {
                 if (data.resultCode === 0) {
                     dispatch(followSuccess(userId))
@@ -112,17 +112,17 @@ export const follow = (userId) => {
     }
 };
 
-    export const unFollow = (userId) => {
-        return (dispatch) => {
-            dispatch(toggleFollowingInProgress(true, userId));
-            socialNetworkApi.unFollow(userId)
-                .then(data => {
-                    if (data.resultCode === 0) {
-                        dispatch(unFollowSuccess(userId))
-                    }
-                    dispatch(toggleFollowingInProgress(false, userId))
-                });
-        }
+export const unFollow = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingInProgress(true, userId));
+        usersApi.unFollow(userId)
+            .then(data => {
+                if (data.resultCode === 0) {
+                    dispatch(unFollowSuccess(userId))
+                }
+                dispatch(toggleFollowingInProgress(false, userId))
+            });
+    }
 
 };
 

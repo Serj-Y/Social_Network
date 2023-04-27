@@ -1,4 +1,4 @@
-import { socialNetworkApi } from "../apiComponents/Api";
+import { authApi } from "../apiComponents/Api";
 
 const SET_USER_DATA = 'SET-USER-DATA';
 
@@ -27,7 +27,7 @@ export const setAuthUserData = (id, email, login) => ({ type: SET_USER_DATA, dat
 
 export const authData = () => {
     return (dispatch) => {
-        socialNetworkApi.getLoginData()
+        authApi.getLoginData()
             .then(data => {
                 if (data.resultCode === 0) {
                     let { id, email, login } = data.data;

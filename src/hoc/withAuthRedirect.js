@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { connect } from "react-redux";
 

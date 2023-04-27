@@ -8,7 +8,7 @@ if (!props.profile) {
 }
     return <div>
         <div className={s.descriptionBlock}>
-            <img src={props.profile.photos.large}></img>
+            <img src={props.profile.photos.large}/>
             <ProfileStatus status="Hi!"/>
             </div>
     </div>

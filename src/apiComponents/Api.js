@@ -27,19 +27,42 @@ export const usersApi = {
                 return response.data;
             })
     },
-  
+
     getProfileContent(userId) {
         return instance.get(`profile/` + userId)
             .then(response => {
                 return response.data;
             })
-    }
+    },
+
+    getStatus(userId) {
+        return instance.get(`profile/status/` + userId)
+        .then(response => {
+            return response.data;
+        })
+    },
+
+    updateStatus(status) {
+        return instance.put(`profile/status/`, {status: status})
+        .then(response => {
+            return response.data;
+        })
+    },
 
 }
 
 export const authApi = {
-      getLoginData() {
+    getLoginData() {
         return instance.get(`auth/me`)
+            .then(response => {
+                return response.data;
+            })
+    },
+}
+
+export const profileApi = {
+    getProfileContent(userId) {
+        return instance.get(`profile/` + userId)
             .then(response => {
                 return response.data;
             })

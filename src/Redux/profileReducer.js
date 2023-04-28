@@ -74,7 +74,6 @@ export const getStatus = (userId) => {
     return (dispatch) => {
         usersApi.getStatus(userId)
             .then(data => {
-                debugger
                 dispatch(setStatus(data));
             });
     }

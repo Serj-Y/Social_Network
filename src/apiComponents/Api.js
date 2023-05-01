@@ -35,6 +35,18 @@ export const authApi = {
                 return response.data;
             })
     },
+    loginPost() {
+        return instance.post(`auth/login`)
+            .then(response => {
+                return response.data;
+            })
+    },
+    loginDelete() {
+        return instance.delete(`auth/login`)
+            .then(response => {
+                return response.data;
+            })
+    },
 }
 
 export const profileApi = {

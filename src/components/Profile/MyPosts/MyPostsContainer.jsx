@@ -1,5 +1,5 @@
 import { compose } from "redux";
-import { updateNewPostTextActionCreator, addPostActionCreator } from "../../../Redux/profileReducer";
+import { addPostActionCreator } from "../../../Redux/profileReducer";
 import MyPosts from "./MyPosts";
 import { connect } from "react-redux";
 
@@ -12,17 +12,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateNewPostText: (text) => {
-            let action = updateNewPostTextActionCreator(text);
-            dispatch(action);
-        },
-        addPost: () => {
-            dispatch(addPostActionCreator());
+        addPost: (newPostText) => {
+            dispatch(addPostActionCreator(newPostText));
         }
     }
 };
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-
 )(MyPosts);

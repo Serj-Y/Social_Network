@@ -1,4 +1,4 @@
-import { usersApi } from '../apiComponents/Api';
+import { profileApi } from '../apiComponents/Api';
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -64,7 +64,7 @@ export const setStatus = (status) => ({ type: SET_STATUS, status })
 
 export const profileContent = (userId) => {
     return (dispatch) => {
-        usersApi.getProfileContent(userId)
+        profileApi.getProfileContent(userId)
             .then(data => {
                 dispatch(setUserProfile(data));
             });
@@ -72,7 +72,7 @@ export const profileContent = (userId) => {
 }
 export const getStatus = (userId) => {
     return (dispatch) => {
-        usersApi.getStatus(userId)
+        profileApi.getStatus(userId)
             .then(data => {
                 dispatch(setStatus(data));
             });
@@ -80,7 +80,7 @@ export const getStatus = (userId) => {
 }
 export const updateStatus = (status) => {
     return (dispatch) => {
-        usersApi.updateStatus(status)
+        profileApi.updateStatus(status)
             .then(data => {
                 if (data.resultCode === 0){
                 dispatch(setStatus(status));

@@ -35,13 +35,13 @@ export const authApi = {
                 return response.data;
             })
     },
-    loginPost() {
-        return instance.post(`auth/login`)
+    login(email, password, rememberMe) {
+        return instance.post(`auth/login`,{email, password, rememberMe})
             .then(response => {
                 return response.data;
             })
     },
-    loginDelete() {
+    logOut() {
         return instance.delete(`auth/login`)
             .then(response => {
                 return response.data;

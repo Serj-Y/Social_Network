@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
 import Music from './components/Music/Music';
@@ -10,8 +10,20 @@ import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
+import { initializeApp } from './Redux/AppReducer';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+import { compose } from 'redux';
+import Preloader from './components/Common/Preloader/Preloader';
 
-const App = (props) => {
+class App extends Component  {
+  componentDidMount() {
+    this.props.initializeApp();
+}
+render() {
+  if (!this.props.initialized){
+    return <Preloader/>
+  }
   return (
     <div className='app-wrapper' >
       <HeaderContainer />
@@ -26,7 +38,13 @@ const App = (props) => {
         <Route path='/settings' render={() => <Settings />} />
       </div>
     </div>
-  );
+)};
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default compose( 
+  withRouter,
+  connect(mapStateToProps,{initializeApp}))(App);

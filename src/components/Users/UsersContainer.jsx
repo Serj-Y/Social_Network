@@ -59,5 +59,4 @@ export default compose(
         setCurrentPage,
         toggleFollowingInProgress,
     }),
-    withAuthRedirect
 )(usersComponent)

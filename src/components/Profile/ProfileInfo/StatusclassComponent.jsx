@@ -1,5 +1,4 @@
-import React from "react";
-import s from "./ProfileInfo.module.css"
+
 
 
 
@@ -61,4 +60,3 @@ componentDidUpdate(prevProps, prevState){
         )
     }
 }
-export default ProfileStatus

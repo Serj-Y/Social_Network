@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import s from "./ProfileInfo.module.css"
 
 const ProfileStatusWidthHook = (props) => {
-
     let [editMode, setEditMode] = useState(false);
-
     let [status, setStatus] = useState(props.status);
+
+    useEffect( () => {
+        setStatus(props.status);
+
+    }, [props.status] )
 
     const activateEditMode = () => {
         setEditMode(true)
@@ -25,7 +28,7 @@ const ProfileStatusWidthHook = (props) => {
         <div>
             {!editMode &&
                 <div>
-                    <span onClick={activateEditMode}>{status || 'Empty Status-Click To Edit'}</span>
+                    <span onClick={activateEditMode}>{props.status || 'Empty Status-Click To Edit'}</span>
                 </div>
             }
             {editMode &&

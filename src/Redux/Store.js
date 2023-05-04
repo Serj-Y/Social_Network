@@ -35,7 +35,7 @@ let store = {
   },
 
   _callSubscriber() {
-    console.log('dalbaiob');
+
   },
 
   getState() {
@@ -45,3 +45,4 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer;
   },
+}

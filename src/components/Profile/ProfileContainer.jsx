@@ -34,9 +34,7 @@ let mapStateToProps = (state) => ({
     status: state.profilePage.status,
     isAuth: state.auth.isAuth,
     AuthUserId: state.auth.id,
-   
 });
-
 export default compose(
     connect(mapStateToProps, { setUserProfile, profileContent, updateStatus, getStatus }),
     withRouter,

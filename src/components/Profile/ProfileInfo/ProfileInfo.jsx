@@ -4,7 +4,7 @@ import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatusWidthHook from "./ProfileStatusWithHook";
 import userPhotoDefault from "../../../assets/img/4314581-200.png"
 
-const ProfileInfo = (props) => {
+const ProfileInfo = React.memo(props => {
 if (!props.profile) {
     return <Preloader/>
 }
@@ -21,5 +21,5 @@ if (!props.profile.photos.large) {
             <div>Looking A Job: {props.profile.lookingForAJobDescription}</div>
             </div>
     </div>
-}
+})
 export default ProfileInfo

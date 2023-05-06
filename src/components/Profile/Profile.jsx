@@ -4,7 +4,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-const Profile = (props) => {
+const Profile = React.memo(props => {
     return <div>
         <ProfileInfo
             profile={props.profile}
@@ -12,5 +12,5 @@ const Profile = (props) => {
             updateStatus={props.updateStatus} />
         <MyPostsContainer />
     </div>
-}
+})
 export default Profile

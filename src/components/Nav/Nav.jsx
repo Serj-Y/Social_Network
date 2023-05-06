@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import s from './Nav.module.css';
 
-const Nav = () => {
+const Nav = React.memo(props => {
   return (
     <nav className={s.nav} >
       <div className={s.item}>
@@ -27,5 +27,6 @@ const Nav = () => {
       </div>
     </nav>
   )
-}
+})
+
 export default Nav;

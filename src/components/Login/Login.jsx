@@ -10,7 +10,7 @@ import style from "../Common/FormsControls/FormsControls.module.css"
 const maxLength = maxLengthCreator(25);
 const minLength = minLengthCreator(4);
 
-const LoginForm = (props) => {
+const LoginForm = React.memo(props => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -43,30 +43,34 @@ const LoginForm = (props) => {
             </div>
         </form>
     )
-}
+})
 
 const LoginReduxForm = reduxForm({
     form: "login"
 })(LoginForm);
 
-const Login = (props) => {
+const Login = React.memo(props => {
     const onSubmit = (FormData) => {
-        props.login(FormData.email, FormData.password, FormData.rememberMe);
+        props.login(
+            FormData.email,
+            FormData.password,
+            FormData.rememberMe);
     }
-
     if (props.isAuth) {
         return <Redirect to={"/profile"} />
     }
-
     return (
         <div>
             <h1>Login</h1>
             <LoginReduxForm onSubmit={onSubmit} />
         </div>
     )
-}
+})
+
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth
 })
+
+
 export default connect(mapStateToProps, { login }
 )(Login) 

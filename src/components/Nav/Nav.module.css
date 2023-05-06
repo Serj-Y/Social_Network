@@ -3,18 +3,13 @@
   background-color: brown;
   padding: 20px;
   text-align: center;
-   
 }
 
-.active .item {
-  color: black;
-  
-}
-
- .item {
-   text-decoration: none;
+.item {
+  text-decoration: none;
   color: aliceblue;
-  
-
 }
 
+.active.item {
+  color: black;
+}

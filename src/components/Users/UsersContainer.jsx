@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import Users from "./Users";
 import { connect } from "react-redux";
 import { follow, unFollow, setCurrentPage, toggleFollowingInProgress, requestUsers} from "../../Redux/usersReducer";
@@ -6,7 +6,7 @@ import Preloader from "../../components/Common/Preloader/Preloader"
 import { compose } from "redux";
 import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsers, getUsersSelector } from "../../Redux/userSelectors";
 
-class usersComponent extends React.Component {
+class usersComponent extends PureComponent {
     componentDidMount() {
         this.props.requestUsers(this.props.currentPage, this.props.pageSize)
     }

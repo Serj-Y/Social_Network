@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Header from './Header';
 import { logout } from '../../Redux/authReducer'
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 
-class HeaderContainer extends React.Component {
+class HeaderContainer extends PureComponent {
     render() {
         return <Header {...this.props} />
     }

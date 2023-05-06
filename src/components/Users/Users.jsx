@@ -3,7 +3,7 @@ import s from './User.module.css'
 import userPhotoDefault from '../../assets/img/4314581-200.png'
 import { NavLink } from "react-router-dom";
 
-let Users = (props) => {
+let Users = React.memo(props => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) { pages.push(i); }
@@ -41,6 +41,6 @@ let Users = (props) => {
             }
         </div>
     )
-}
+})
 
 export default Users

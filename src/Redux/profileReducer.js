@@ -1,19 +1,19 @@
-import { profileApi } from '../apiComponents/Api';
+import { profileApi } from "../apiComponents/Api";
 
-const ADD_POST = 'ADD-POST';
-const SET_USER_PROFILE = 'SET-USER-PROFILE';
-const SET_STATUS = 'SET-STATUS'
+const ADD_POST = "ADD-POST";
+const SET_USER_PROFILE = "SET-USER-PROFILE";
+const SET_STATUS = "SET-STATUS"
 
 let initialState = {
     posts: [
-        { id: 1, message: 'Hi', likesCount: 13 },
-        { id: 2, message: 'Hello World', likesCount: 24 },
-        { id: 3, message: 'post', likesCount: 83 },
-        { id: 4, message: '(;', likesCount: 39 },
-        { id: 5, message: '):', likesCount: 45 },
+        { id: 1, message: "Hi", likesCount: 13 },
+        { id: 2, message: "Hello World", likesCount: 24 },
+        { id: 3, message: "post", likesCount: 83 },
+        { id: 4, message: "(;", likesCount: 39 },
+        { id: 5, message: "):", likesCount: 45 },
     ],
     profile: null,
-    status: '',
+    status: "",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -27,7 +27,7 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: [...state.posts, newPost],
-                newPostText: '',
+                newPostText: "",
             };
         }
         case SET_USER_PROFILE: {

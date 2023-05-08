@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import s from "./ProfileInfo.module.css"
 
 const ProfileStatusWidthHook = React.memo(props => {
     let [editMode, setEditMode] = useState(false);
@@ -27,7 +26,7 @@ const ProfileStatusWidthHook = React.memo(props => {
             {!editMode &&
                 <div>
                     <span onClick={activateEditMode}>
-                        {props.status || 'Empty Status-Click To Edit'}</span>
+                        {props.status || "Empty Status-Click To Edit"}</span>
                 </div>
             }
             {editMode &&

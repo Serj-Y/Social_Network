@@ -1,5 +1,5 @@
 import React from "react";
-import style from './Paginator.module.css'
+import style from "./Paginator.module.css"
 
 
 let Paginator = React.memo(props => {

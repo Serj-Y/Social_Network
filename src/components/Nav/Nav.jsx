@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import s from './Nav.module.css';
+import s from "./Nav.module.css";
 
 const Nav = React.memo(props => {
   return (

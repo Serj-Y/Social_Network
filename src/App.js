@@ -42,7 +42,7 @@ render() {
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized
+  initialized: state.app.initialized,
 })
 
 export default compose( 

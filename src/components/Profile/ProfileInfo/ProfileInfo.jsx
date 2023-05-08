@@ -8,9 +8,6 @@ const ProfileInfo = React.memo(props => {
 if (!props.profile) {
     return <Preloader/>
 }
-if (!props.profile.photos.large) {
-
-}
     return <div>
         <div className={s.descriptionBlock}>
             <img src={props.profile.photos.large != null ? props.profile.photos.small : userPhotoDefault}/>

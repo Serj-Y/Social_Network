@@ -5,7 +5,7 @@ import Message from "./Message/Message";
 import { Field, reduxForm } from "redux-form";
 import { required, maxLengthCreator, minLengthCreator } from "../Common/Validators/Validators";
 import { Textarea } from "../Common/FormsControls/FormsControls";
-
+import { CreateFields } from "../Common/FormsControls/FormsControls";
 const maxLength = maxLengthCreator(50);
 const minLength = minLengthCreator(2);
 
@@ -34,12 +34,7 @@ const Dialogs = React.memo(props => {
 const AddMessageForm = React.memo(props => {
   return (
     <form onSubmit={props.handleSubmit} >
-      <div><Field
-        component={Textarea}
-        name="newMessageBody"
-        placeholder="Enter your message"
-        validate={[required, maxLength, minLength]} />
-      </div>
+      {CreateFields("Enter your message", "newMessageBody", [required, maxLength, minLength], Textarea)}
       <div>
         <button>Send Message</button>
       </div>

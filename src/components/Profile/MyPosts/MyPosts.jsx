@@ -4,6 +4,7 @@ import { Textarea } from "../../Common/FormsControls/FormsControls";
 import { maxLengthCreator, minLengthCreator, required } from "../../Common/Validators/Validators";
 import s from "./MyPosts.module.css";
 import Post from "./Posts/Post";
+import { CreateFields } from "../../Common/FormsControls/FormsControls";
 
 const maxLength = maxLengthCreator(50);
 const minLength = minLengthCreator(2);
@@ -11,16 +12,8 @@ const minLength = minLengthCreator(2);
 let AddNewPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} >
-            <div>
-                <Field
-                    name="newPostText"
-                    component={Textarea}
-                    placeholder="Enter your message"
-                    validate={[required, maxLength, minLength]} />
-                <div>
-                    <button>Post</button>
-                </div>
-            </div>
+            {CreateFields("Enter your post-message", "newPostText", [required, maxLength, minLength], Textarea)}
+            <button>Post</button>
         </form>
     )
 }

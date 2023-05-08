@@ -6,35 +6,17 @@ import { connect } from "react-redux";
 import { login } from "../../Redux/authReducer";
 import { Redirect } from "react-router-dom/cjs/react-router-dom";
 import style from "../Common/FormsControls/FormsControls.module.css"
+import { CreateFields } from "../Common/FormsControls/FormsControls";
 
-const maxLength = maxLengthCreator(25);
+const maxLength = maxLengthCreator(26);
 const minLength = minLengthCreator(4);
 
 const LoginForm = React.memo(props => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field
-                    placeholder={"Email"}
-                    name={"email"}
-                    component={Input}
-                    validate={[required, maxLength, minLength]} />
-            </div>
-            <div>
-                <Field
-                    placeholder={"Password"}
-                    name={"password"}
-                    type={"password"}
-                    component={Input}
-                    validate={[required, maxLength, minLength]} />
-            </div>
-            <div>
-                <Field
-                    type={"checkbox"}
-                    name={"rememberMe"}
-                    component={Input}
-                /> remember me
-            </div>
+            {CreateFields("Email", "email", [required, maxLength, minLength], Input)}
+            {CreateFields("Password", "password", [required, maxLength, minLength], Input, { type: "password" })}
+            {CreateFields(null, "rememberMe", [], Input, { type: "checkbox" }, "Remember Me")}
             <div className={style.formSummaryError}>
                 {props.error}
             </div>

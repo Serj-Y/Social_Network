@@ -1,11 +1,10 @@
-
-.img{
+.img {
     max-width: 100px;
 }
- 
- .selectedPage {
-   color: red;
-    text-decoration: solid;
- }
 
-
+.button {
+    padding-left: 20px;
+}
+.name{
+    padding-left: 10px;
+}

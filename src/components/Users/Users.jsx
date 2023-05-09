@@ -2,14 +2,15 @@ import React from "react";
 import Paginator from "../Common/Paginator/Paginator";
 import User from "./User";
 
-let Users = React.memo(props => {
+let Users = (props) => {
+
     return <div>
-        <Paginator
+               <Paginator
             currentPage={props.currentPage}
             onPageChanged={props.onPageChanged}
-            totalUsersCount={props.totalUsersCount}
-            pageSize={props.pageSize} />
-
+            totalItemsCount={props.totalUsersCount}
+            pageSize={props.pageSize} 
+       />
         {props.users.map(u => <User
             unFollow={props.unFollow}
             follow={props.follow}
@@ -17,7 +18,13 @@ let Users = React.memo(props => {
             key={u.id}
             followingInProgress={props.followingInProgress} />
         )}
+        <Paginator
+            currentPage={props.currentPage}
+            onPageChanged={props.onPageChanged}
+            totalItemsCount={props.totalUsersCount}
+            pageSize={props.pageSize} 
+       />
     </div>
-})
+}
 
 export default Users

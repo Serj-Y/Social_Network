@@ -5,9 +5,9 @@ import s from "./Nav.module.css";
 const Nav = React.memo(props => {
   return (
     <nav className={s.nav} >
-      <div className={s.item}>
+      <div >
         <div>
-          <NavLink to="/profile" className={navData => navData.isActive ? s.active : s.item} >Profile</NavLink>
+          <NavLink to="/profile"  className={navData => navData.isActive ? s.active : s.item} >Profile</NavLink>
         </div>
         <div>
           <NavLink to="/messages" className={navData => navData.isActive ? s.active : s.item} >Messages</NavLink>

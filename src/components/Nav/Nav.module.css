@@ -5,3 +5,13 @@
   text-align: center;
   
 }
+.link{
+  text-decoration: solid;
+  color: aliceblue;
+  
+}
+
+ .active {
+  color: black;
+}
+

@@ -22,19 +22,19 @@ let rightPortionNumber = portionNumber * portionSize
     return (
         <div className={style.paginator}>
             {portionNumber > 1 && 
-            <button onClick={() => {setPortionNumber(portionNumber - 1) }}>Prev</button>}
+            <button onClick={() => {setPortionNumber(portionNumber - 1) }}>{"< ..."}</button>}
 
 
             {pages.filter(p => p >= leftPortionNumber && p<=rightPortionNumber).map((p) => {
                 return (
-                    <span className={currentPage === p && style.selectedPage}
+                    <button className={currentPage === p && style.selectedPage}
                     key={p}
                         onClick={(e) => {onPageChanged(p); }}>{p}
-                    </span>
+                    </button>
                 )
             })}
 {portionCount > portionNumber && 
-<button onClick={() => {setPortionNumber(portionNumber + 1 ) }}>Prev</button>}
+<button onClick={() => {setPortionNumber(portionNumber + 1 ) }}>{"... >"}</button>}
 
 
 

@@ -1,28 +1,28 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import s from "./Nav.module.css";
+import style from "./Nav.module.css";
 
 const Nav = React.memo(props => {
   return (
-    <nav className={s.nav} >
+    <nav className={style.nav} >
       <div >
         <div>
-          <NavLink to="/profile"  className={navData => navData.isActive ? s.active : s.item} >Profile</NavLink>
+          <NavLink to="/profile"  >Profile</NavLink>
         </div>
         <div>
-          <NavLink to="/messages" className={navData => navData.isActive ? s.active : s.item} >Messages</NavLink>
+          <NavLink to="/messages" >Messages</NavLink>
         </div>
         <div>
-          <NavLink to="/users" className={navData => navData.isActive ? s.active : s.item} >Users</NavLink>
+          <NavLink to="/users" >Users</NavLink>
         </div>
         <div>
-          <NavLink to="/news" className={navData => navData.isActive ? s.active : s.item} >News</NavLink>
+          <NavLink to="/news" >News</NavLink>
         </div>
         <div>
-          <NavLink to="/music" className={navData => navData.isActive ? s.active : s.item} >Music</NavLink>
+          <NavLink to="/music" >Music</NavLink>
         </div>
         <div>
-          <NavLink to="/settings" className={navData => navData.isActive ? s.active : s.item} >Settings</NavLink>
+          <NavLink to="/settings" >Settings</NavLink>
         </div>
       </div>
     </nav>

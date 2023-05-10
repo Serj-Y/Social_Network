@@ -1,4 +1,5 @@
 .selectedPage {
-    color: red;
-     text-decoration: solid;
+    background-color: black;
+    text-decoration: double;
+    color: aliceblue;
   }

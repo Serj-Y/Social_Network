@@ -1,17 +1,22 @@
 .nav {
   grid-area: n;
   background-color: brown;
-  padding: 20px;
   text-align: center;
-  
 }
-.link{
-  text-decoration: solid;
+
+.item a {
+  text-decoration: none;
   color: aliceblue;
-  
 }
 
- .active {
-  color: black;
+a.active {
+  text-align: left;
+  text-shadow: 3px;
+  text-decoration: solid;
+  text-decoration-line: underline;
+  text-decoration-color: black;
 }
 
+.link{
+  padding: 5px;
+}

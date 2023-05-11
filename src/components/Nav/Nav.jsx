@@ -2,31 +2,32 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Nav.module.css";
 
-const Nav = React.memo(props => {
+const Nav = (props) => {
+  let userId = props.userId
   return (
     <nav className={style.nav} >
       <div className={style.item} >
-        <div>
-          <NavLink to="/profile" className={({ isActive }) => isActive ? style.active : style.link}> Profile</NavLink>
+        <div className={style.link} >
+          <NavLink to={"/profile/" + userId} activeClassName={style.active}> Profile</NavLink>
         </div>
-        <div>
-          <NavLink to="/messages" className={({ isActive }) => isActive ? style.active : style.link} >Messages</NavLink>
+        <div className={style.link} >
+          <NavLink to="/messages" activeClassName={style.active} >Messages</NavLink>
         </div>
-        <div>
-          <NavLink to="/users" className={({ isActive }) => isActive ? style.active : style.link}>Users</NavLink>
+        <div className={style.link} >
+          <NavLink to="/users" activeClassName={style.active}>Users</NavLink>
         </div>
-        <div>
-          <NavLink to="/news" className={({ isActive }) => isActive ? style.active : style.link}>News</NavLink>
+        <div className={style.link} >
+          <NavLink to="/news" activeClassName={style.active}>News</NavLink>
         </div>
-        <div>
-          <NavLink to="/music" className={({ isActive }) => isActive ? style.active : style.link} >Music</NavLink>
+        <div className={style.link} >
+          <NavLink to="/music" activeClassName={style.active} >Music</NavLink>
         </div>
-        <div>
-          <NavLink to="/settings" className={({ isActive }) => isActive ? style.active : style.link}>Settings</NavLink>
+        <div className={style.link} >
+          <NavLink to="/settings" activeClassName={style.active}>Settings</NavLink>
         </div>
       </div>
     </nav>
   )
-})
+}
 
 export default Nav;

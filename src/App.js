@@ -29,7 +29,7 @@ class App extends PureComponent {
     return (
       <div className="app-wrapper" >
         <HeaderContainer />
-        <Nav />
+        <Nav userId={this.props.userId} />
         <div className="app-wrapper-content">
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/messages" render={widthSuspense(DialogsContainer) }/>
@@ -46,6 +46,7 @@ class App extends PureComponent {
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
+  userId: state.auth.id
 })
 
 export default compose(

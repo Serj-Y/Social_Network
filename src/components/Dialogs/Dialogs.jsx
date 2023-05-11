@@ -1,8 +1,8 @@
 import React from "react";
-import s from "./Dialogs.module.css";
+import style from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import { Field, reduxForm } from "redux-form";
+import { reduxForm } from "redux-form";
 import { required, maxLengthCreator, minLengthCreator } from "../Common/Validators/Validators";
 import { Textarea } from "../Common/FormsControls/FormsControls";
 import { CreateFields } from "../Common/FormsControls/FormsControls";
@@ -20,11 +20,11 @@ const Dialogs = React.memo(props => {
   };
 
   return (
-    <div className={s.dialogs}>
-      <div className={s.dialogsItem}>
+    <div className={style.dialogs}>
+      <div className={style.dialogsItem}>
         {dialogsElements}
       </div>
-      <div className={s.messages}>
+      <div className={style.messages}>
         <div>{messagesElements}</div>
       </div>
       <AddMessageFormRedux onSubmit={addNewMessage} />
@@ -35,7 +35,7 @@ const AddMessageForm = React.memo(props => {
   return (
     <form onSubmit={props.handleSubmit} >
       {CreateFields("Enter your message", "newMessageBody", [required, maxLength, minLength], Textarea)}
-      <div>
+      <div className={style.button}>
         <button>Send Message</button>
       </div>
     </form>

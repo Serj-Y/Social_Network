@@ -1,4 +1,4 @@
-import React, { PureComponent} from "react";
+import React, { PureComponent } from "react";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import "./App.css";
 import Music from "./components/Music/Music";
@@ -12,9 +12,9 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom/cjs/react-router-dom";
 import { compose } from "redux";
 import Preloader from "./components/Common/Preloader/Preloader";
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import { widthSuspense } from "./hoc/withSuspense";
 
+const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"))
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
 const UsersContainer = React.lazy(() => import("./components/Users/UsersContainer"))
 
@@ -22,18 +22,20 @@ class App extends PureComponent {
   componentDidMount() {
     this.props.initializeApp();
   }
+  
   render() {
     if (!this.props.initialized) {
       return <Preloader />
     }
+
     return (
       <div className="app-wrapper" >
         <HeaderContainer />
-        <Nav userId={this.props.userId} />
+        <Nav />
         <div className="app-wrapper-content">
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/messages" render={widthSuspense(DialogsContainer) }/>
-          <Route path="/users" render={widthSuspense(UsersContainer) }/>
+          <Route path="/profile/:userId?" render={widthSuspense(ProfileContainer)} />
+          <Route path="/messages" render={widthSuspense(DialogsContainer)} />
+          <Route path="/users" render={widthSuspense(UsersContainer)} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
@@ -46,7 +48,7 @@ class App extends PureComponent {
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
-  userId: state.auth.id
+
 })
 
 export default compose(

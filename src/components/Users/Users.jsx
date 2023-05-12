@@ -3,7 +3,6 @@ import Paginator from "../Common/Paginator/Paginator";
 import User from "./User";
 
 let Users = (props) => {
-
     return <div>
                <Paginator
             currentPage={props.currentPage}

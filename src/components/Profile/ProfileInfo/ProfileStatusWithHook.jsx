@@ -24,9 +24,12 @@ const ProfileStatusWidthHook = React.memo(props => {
     return (
         <div>
             {!editMode &&
-                <div>
-                    <span onClick={activateEditMode}>
-                        {props.status || "Empty Status-Click To Edit"}</span>
+                <div> 
+                   <b>Status</b>:
+                    <span 
+                    onClick={activateEditMode}> 
+                    {  props.status || "Empty Status-Click To Edit"}
+                    </span>
                 </div>
             }
             {editMode &&

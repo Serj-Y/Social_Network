@@ -1,31 +1,40 @@
 import { stopSubmit } from "redux-form";
-import { authApi } from "../apiComponents/Api";
+import { authApi, securityApi } from "../apiComponents/Api";
 
 const SET_USER_DATA = "samurai-network/auth/SET-USER-DATA";
+const GET_CAPTCHA_URL_SUCCESS = "samurai-network/auth/GET- CAPTCHA-URL-SUCCESS"
+
 
 let initialState = {
     id: null,
     email: null,
     login: null,
     isAuth: false,
+    captchaUrl: null,
 
 };
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA:
+        case GET_CAPTCHA_URL_SUCCESS:
             return {
                 ...state,
-                ...action.data,
+                ...action.payload,
             }
-
         default:
             return state;
     }
 }
 
-export const setAuthUserData = (id, email, login, isAuth) =>
-    ({ type: SET_USER_DATA,  data: { id, email, login, isAuth } });
+export const setAuthUserData = (id, email, login, isAuth) => ({ type: SET_USER_DATA, payload: { id, email, login, isAuth } });
+
+export const setCaptchaUrlSuccess = (captchaUrl) => ({
+    type: GET_CAPTCHA_URL_SUCCESS, payload: { captchaUrl }
+});
+
+
+
 
 export const authData = () => async (dispatch) => {
     let data = await authApi.getLoginData()
@@ -37,15 +46,23 @@ export const authData = () => async (dispatch) => {
 }
 
 
-export const login = ( email, password, rememberMe) => async (dispatch) => {
-    let data = await authApi.login( email, password, rememberMe)
-
+export const login = (email, password, rememberMe, captcha) => async (dispatch) => {
+    let data = await authApi.login(email, password, rememberMe, captcha)
     if (data.resultCode === 0) {
-        dispatch(authData())
+        dispatch(authData(getCaptcha()))
     }
     else {
-        dispatch(stopSubmit("login", { _error: data?.messages }))
+        if (data.resultCode === 10) {
+            dispatch(getCaptcha())
+        }
     }
+    dispatch(stopSubmit("login", { _error: data?.messages }))
+}
+
+export const getCaptcha = () => async (dispatch) => {
+    let data = await securityApi.getCaptcha()
+    const captchaUrl = data.url;
+    dispatch(setCaptchaUrlSuccess(captchaUrl))
 }
 
 export const logout = () => async (dispatch) => {

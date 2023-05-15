@@ -17,6 +17,10 @@ const LoginForm = React.memo(props => {
             {CreateFields("Email", "email", [required, maxLength, minLength], Input)}
             {CreateFields("Password", "password", [required, maxLength, minLength], Input, { type: "password" })}
             {CreateFields(null, "rememberMe", [], Input, { type: "checkbox" }, "Remember Me")}
+          
+          {props.captchaUrl && <img src={props.captchaUrl}/>}
+          {props.captchaUrl &&  CreateFields("Captcha", "captcha", [required], Input, {})}
+          
             <div className={style.formSummaryError}>
                 {props.error}
             </div>
@@ -36,7 +40,8 @@ const Login = React.memo(props => {
         props.login(
             FormData.email,
             FormData.password,
-            FormData.rememberMe);
+            FormData.rememberMe,
+            FormData.captcha );
     }
     if (props.isAuth) {
         return <Redirect to={"/profile"} />
@@ -44,13 +49,16 @@ const Login = React.memo(props => {
     return (
         <div>
             <h1>Login</h1>
-            <LoginReduxForm onSubmit={onSubmit} />
+            <LoginReduxForm 
+            onSubmit={onSubmit}
+            captchaUrl={props.captchaUrl} />
         </div>
     )
 })
 
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 })
 
 

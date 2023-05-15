@@ -11,15 +11,24 @@ const ProfileInfo = (props) => {
 
     let [editMode, setEditMode] = useState(false);
 
-
     if (!props.profile) {
         return <Preloader />
     }
+
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
             props.savePhoto(e.target.files[0]);
         }
     }
+
+    const onSubmit = (formData) => {
+     props.saveProfile(formData)
+     .then(() => {
+              setEditMode(false);
+     })
+  
+    }
+
     return (
         <div className={style.descriptionBlock}>
             <img src={props.profile.photos.large != null ? props.profile.photos.small : userPhotoDefault} />
@@ -31,8 +40,11 @@ const ProfileInfo = (props) => {
             </div>
             {editMode
                 ? <ProfileDataReduxForm
+                    initialValues={props.profile}
+                    onSubmit={onSubmit}
                     profile={props.profile}
-                    isOwner={props.isOwner}
+                    error={props.error}
+
                 />
                 : <ProfileData
                     profile={props.profile}

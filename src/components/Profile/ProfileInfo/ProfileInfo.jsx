@@ -6,8 +6,7 @@ import userPhotoDefault from "../../../assets/img/4314581-200.png"
 import { useState } from "react";
 import ProfileDataReduxForm from "./ProfileData/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
-import { saveProfile } from "../../../Redux/profileReducer";
-import { editableInputTypes } from "@testing-library/user-event/dist/utils";
+
 
 const ProfileInfo = (props) => {
 

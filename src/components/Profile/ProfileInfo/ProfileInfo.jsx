@@ -34,7 +34,7 @@ const ProfileInfo = (props) => {
     return (
         <div className={style.descriptionBlock}>
             <img src={props.profile.photos.large != null ? props.profile.photos.small : userPhotoDefault} />
-            <div>{props.isOwner &&  <input   type={"file"} onChange={onMainPhotoSelected} />}</div>
+            <div>{props.isOwner &&  <input  type="file" onChange={onMainPhotoSelected} />}</div>
             <div>
                 <ProfileStatusWidthHook
                     status={props.status}

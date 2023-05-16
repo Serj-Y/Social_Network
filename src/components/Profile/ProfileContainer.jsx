@@ -46,7 +46,7 @@ let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
     isAuth: state.auth.isAuth,
-    AuthUserId: state.auth.id,
+    AuthUserId: state.auth.userId,
 });
 export default compose(
     connect(mapStateToProps, { setUserProfile, profileContent, updateStatus, getStatus, savePhoto, saveProfile }),

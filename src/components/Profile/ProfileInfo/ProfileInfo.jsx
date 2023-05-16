@@ -6,6 +6,8 @@ import userPhotoDefault from "../../../assets/img/4314581-200.png"
 import { useState } from "react";
 import ProfileDataReduxForm from "./ProfileData/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
+import { saveProfile } from "../../../Redux/profileReducer";
+import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 
 const ProfileInfo = (props) => {
 
@@ -32,7 +34,7 @@ const ProfileInfo = (props) => {
     return (
         <div className={style.descriptionBlock}>
             <img src={props.profile.photos.large != null ? props.profile.photos.small : userPhotoDefault} />
-            <div>{props.isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}</div>
+            <div>{props.isOwner &&  <input   type={"file"} onChange={onMainPhotoSelected} />}</div>
             <div>
                 <ProfileStatusWidthHook
                     status={props.status}

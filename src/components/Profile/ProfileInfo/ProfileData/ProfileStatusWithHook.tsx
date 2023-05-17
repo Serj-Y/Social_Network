@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from "react";
 
-const ProfileStatusWidthHook = React.memo(props => {
+import React, { useEffect, useState, ChangeEvent } from "react";
+
+type PropsType = {
+    status: string
+    updateStatus: (status: string) => void
+}
+
+
+const ProfileStatusWidthHook: React.FC<PropsType> = React.memo(props => {
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
 
@@ -17,7 +24,7 @@ const ProfileStatusWidthHook = React.memo(props => {
         props.updateStatus(status)
     }
 
-    const onStatusChange = (e) => {
+    const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
         setStatus(e.currentTarget.value)
     }
 

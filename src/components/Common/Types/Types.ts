@@ -34,4 +34,5 @@ export type UsersType = {
     name: string
     status: string
     photos: PhotosType 
+
 }

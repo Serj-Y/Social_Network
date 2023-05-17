@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "./Paginator.module.css"
+import cn from "classnames"
 
 
 type PropsType = {
@@ -7,7 +8,7 @@ type PropsType = {
      pageSize: number
       currentPage: number 
       onPageChanged: (pageNumber: number) => void
-       portionSize: number
+       portionSize?: number
 }
 
 
@@ -36,6 +37,7 @@ let rightPortionNumber = portionNumber * portionSize
             {pages.filter(p => p >= leftPortionNumber && p<=rightPortionNumber).map((p) => {
                 return (
                     <button 
+                    className={ cn({ [style.selectedPage]:currentPage === p})} 
                     key={p}
                         onClick={(e) => {onPageChanged(p); }}>{p}
                     </button>

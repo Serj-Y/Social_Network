@@ -23,7 +23,7 @@ class ProfileContainer extends React.PureComponent {
         this.refreshProfile()
     }
     componentDidUpdate(prevProps) {
-        if (this.props.match.params.userId != prevProps.match.params.userId) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
             this.refreshProfile();
         }
     }

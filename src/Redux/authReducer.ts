@@ -1,5 +1,5 @@
 import { stopSubmit } from "redux-form";
-import { authApi, securityApi } from "../apiComponents/Api";
+import { ResultCodeEnum, authApi, securityApi } from "../apiComponents/Api";
 
 const SET_USER_DATA = "samurai-network/auth/SET-USER-DATA";
 const GET_CAPTCHA_URL_SUCCESS = "samurai-network/auth/GET- CAPTCHA-URL-SUCCESS"
@@ -78,11 +78,11 @@ export const login =
     (email: string, password: string, rememberMe: boolean, captcha: string) =>
         async (dispatch: any) => {
             let data = await authApi.login(email, password, rememberMe, captcha)
-            if (data.resultCode === 0) {
+            if (data.resultCode === ResultCodeEnum.Success) {
                 dispatch(authData())
             }
             else {
-                if (data.resultCode === 10) {
+                if (data.resultCode === ResultCodeEnum.CaptchaIsRequired) {
                     dispatch(getCaptcha())
                 }
             }
@@ -97,7 +97,7 @@ export const getCaptcha = () => async (dispatch: any) => {
 
 export const logout = () => async (dispatch: any) => {
     let data = await authApi.logOut()
-    if (data.resultCode === 0) {
+    if (data.resultCode === ResultCodeEnum.Success) {
         dispatch(setAuthUserData(null, null, null, false))
     }
 }

@@ -1,9 +1,10 @@
-import { instance, MeResponseType } from "./Api";
+import { instance } from "./Api";
+import { GetItemsType } from "../components/Common/Types/Types";
 
 
 export const usersApi = {
     requestUsers(currentPage: number, pageSize: number) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+        return instance.get<GetItemsType>(`users?page=${currentPage}&count=${pageSize}`)
     },
 
     follow(userId: number) {

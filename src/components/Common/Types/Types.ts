@@ -1,3 +1,5 @@
+
+
 export type PostsType = {
     id: number
     message: string
@@ -37,3 +39,19 @@ export type UsersType = {
     photos: PhotosType
     followed: boolean
 }
+
+export type GetItemsType = {
+    items: Array<UsersType>;
+    totalCount: number;
+    error: string | null;
+};export type ResponseType<D = {}, RC = ResultCodeEnum> = {
+    data: D;
+    messages: Array<string>;
+    resultCode: RC;
+};
+export enum ResultCodeEnum {
+    Success = 0,
+    Error = 1,
+    CaptchaIsRequired = 10
+}
+

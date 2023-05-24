@@ -1,5 +1,6 @@
 import { stopSubmit } from "redux-form";
-import { ResultCodeEnum, profileApi } from "../apiComponents/Api";
+import { ResultCodeEnum } from "../components/Common/Types/Types";
+import { profileApi } from "../apiComponents/profileApi";
 import { ProfileType, PhotosType, PostsType } from "../components/Common/Types/Types";
 const ADD_POST = "ADD-POST";
 const SET_USER_PROFILE = "SET-USER-PROFILE";

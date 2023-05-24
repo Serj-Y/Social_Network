@@ -21,9 +21,9 @@ let initialState = {
     newPostText: "",
 };
 
-export type initialStateType = typeof initialState;
+export type InitialStateType = typeof initialState;
 
-const profileReducer = (state = initialState, action: any): initialStateType => {
+const profileReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case ADD_POST: {
             let newPost = {
@@ -88,18 +88,18 @@ export const savePhotoSuccess = (photos: PhotosType): savePhotoSuccessType => ({
 
 
 export const profileContent = (userId: number) => async (dispatch: any) => {
-    let data = await profileApi.getProfileContent(userId)
-    dispatch(setUserProfile(data));
+    let response = await profileApi.getProfileContent(userId)
+    dispatch(setUserProfile(response.data));
 };
 
 export const getStatus = (userId: number) => async (dispatch: any) => {
-    let data = await profileApi.getStatus(userId)
-    dispatch(setStatus(data));
+    let response = await profileApi.getStatus(userId)
+    dispatch(setStatus(response.data));
 };
 
 export const updateStatus = (status: string) => async (dispatch: any) => {
-    let data = await profileApi.updateStatus(status)
-    if (data.resultCode === ResultCodeEnum.Success) {
+    let response = await profileApi.updateStatus(status)
+    if (response.data.resultCode === ResultCodeEnum.Success) {
         dispatch(setStatus(status));
     }
 };
@@ -113,12 +113,12 @@ export const savePhoto = (file: any) => async (dispatch: any) => {
 
 export const saveProfile = (profile: ProfileType) => async (dispatch: any, getState: any) => {
     const userId = getState().auth.id
-    let data = await profileApi.saveProfile(profile);
-    if (data.resultCode === ResultCodeEnum.Success) {
+    let response = await profileApi.saveProfile(profile);
+    if (response.data.resultCode === ResultCodeEnum.Success) {
         dispatch(profileContent(userId))
     } else {
-        dispatch(stopSubmit("edit-profile", { _error: data.messages[0] }))
-        return Promise.reject(data.messages[0])
+        dispatch(stopSubmit("edit-profile", { _error: response.data.messages[0] }))
+        return Promise.reject(response.data.messages[0])
     }
 }
 

@@ -1,18 +1,20 @@
 import { instance } from "./Api";
-import { GetItemsType } from "../components/Common/Types/Types";
+import { GetItemsType, ResponseType } from "../components/Common/Types/Types";
+import { AxiosPromise } from "axios";
 
 
 export const usersApi = {
+
     requestUsers(currentPage: number, pageSize: number) {
         return instance.get<GetItemsType>(`users?page=${currentPage}&count=${pageSize}`)
     },
 
     follow(userId: number) {
-        return instance.post(`follow/${userId}`)
+        return instance.post<ResponseType>(`follow/${userId}`)
     },
 
     unFollow(userId: number) {
-        return instance.delete(`follow/${userId}`)
+        return instance.delete(`follow/${userId}`) as AxiosPromise<ResponseType>
     },
 
 };

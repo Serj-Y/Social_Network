@@ -80,11 +80,11 @@ export const login =
     (email: string, password: string, rememberMe: boolean, captcha: string) =>
         async (dispatch: any) => {
             let response = await authApi.login(email, password, rememberMe, captcha)
-            if (response.data.resultCode === ResultCodeEnum.Success) {
+            if (response.data.resultCode === 0) {
                 dispatch(authData())
             }
             else {
-                if (response.data.resultCode === ResultCodeEnum.CaptchaIsRequired) {
+                if (response.data.resultCode === 10) {
                     dispatch(getCaptcha())
                 }
             }
@@ -99,7 +99,7 @@ export const getCaptcha = () => async (dispatch: any) => {
 
 export const logout = () => async (dispatch: any) => {
     let response = await authApi.logOut()
-    if (response.data.resultCode === ResultCodeEnum.Success) {
+    if (response.data.resultCode === 0) {
         dispatch(setAuthUserData(null, null, null, false))
     }
 }

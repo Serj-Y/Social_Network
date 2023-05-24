@@ -16,12 +16,13 @@ export const authApi = {
         return instance.get<ResponseType<MeResponseDataType>>(`auth/me`)
             
     },
+
     login(email: string, password: string, rememberMe: boolean = false, captcha: null | string = null) {
         return instance.post<ResponseType<LoginResponseType>>(`auth/login`, { email, password, rememberMe, captcha })
       
     },
+
     logOut() {
         return instance.delete(`auth/login`)
-       
     },
 };

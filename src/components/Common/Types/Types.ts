@@ -1,3 +1,6 @@
+import { AppStateType } from "../../../Redux/reduxStore"
+import { Action } from "redux"
+import { ThunkAction } from "redux-thunk"
 
 
 export type PostsType = {
@@ -44,7 +47,7 @@ export type GetItemsType = {
     items: Array<UsersType>;
     totalCount: number;
     error: string | null;
-};export type ResponseType<D = {}, RC = ResultCodeEnum> = {
+}; export type ResponseType<D = {}, RC = ResultCodeEnum> = {
     data: D;
     messages: Array<string>;
     resultCode: RC;
@@ -54,4 +57,7 @@ export enum ResultCodeEnum {
     Error = 1,
     CaptchaIsRequired = 10
 }
+export type CommonThunkType<
+    A extends Action, R = Promise<void>> =
+    ThunkAction<R, AppStateType, unknown, A>;
 

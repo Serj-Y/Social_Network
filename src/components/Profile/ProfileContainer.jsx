@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { setUserProfile, profileContent, getStatus, updateStatus, savePhoto, saveProfile } from "../../Redux/profileReducer";
+import { actions, profileContent, updateStatus, savePhoto, saveProfile, getStatus } from "../../Redux/profileReducer";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
@@ -48,6 +48,10 @@ let mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     AuthUserId: state.auth.userId,
 });
+
+let setUserProfile = actions.setUserProfile
+
+
 export default compose(
     connect(mapStateToProps, { setUserProfile, profileContent, updateStatus, getStatus, savePhoto, saveProfile }),
     withRouter,

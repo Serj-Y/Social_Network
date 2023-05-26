@@ -28,14 +28,14 @@ let initialState = {
 
 type ActionsTypes = InferActionsTypes<typeof actions>
 
-export type initialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 export const actions = {
-  sendMessageCreator: (newMessageBody: string) =>
+  sendMessage: (newMessageBody: string) =>
     ({ type: "SEND-MESSAGE", newMessageBody }) as const
 }
 
-export const dialogReducer = (state = initialState, action: ActionsTypes): initialStateType => {
+export const dialogReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {
     case "SEND-MESSAGE":
       let body = action.newMessageBody;

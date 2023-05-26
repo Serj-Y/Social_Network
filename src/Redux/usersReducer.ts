@@ -87,8 +87,8 @@ type InitialState = typeof initialState
 
 type ActionTypes = InferActionsTypes<typeof actions>
 
+type GetStateType = () => AppStateType
 type DispatchType = Dispatch<ActionTypes>
-
 type ThunkType = CommonThunkType<ActionTypes> 
 
 export const requestUsers = (page: number, pageSize: number): ThunkType =>

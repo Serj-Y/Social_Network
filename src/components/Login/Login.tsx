@@ -15,7 +15,8 @@ type LoginFormOwnProps = {
     captchaUrl: string | null;
 }
 
-const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnProps> & LoginFormOwnProps> = ({ captchaUrl, error, handleSubmit }) => {
+const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnProps> & LoginFormOwnProps>
+ = ({ captchaUrl, error, handleSubmit }) => {
     return (
         <form onSubmit={handleSubmit}>
             {CreateFields<LoginFormValueTypeKeys>("Email", "email", [required], Input)}

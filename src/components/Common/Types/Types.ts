@@ -32,7 +32,7 @@ export type ProfileType = {
     fullName: string
     contacts: ContactsObjectType
     photos: PhotosType
-    status: string
+    status: string 
 }
 
 export type UsersType = {

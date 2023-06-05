@@ -1,28 +1,29 @@
+import { v1 } from "uuid"
 import { InferActionsTypes } from "./reduxStore"
 
 type DialogType = {
-  id: number
+  id: string
   name: string
 }
 type MessageType = {
-  id: number
+  id: string
   message: string
 }
 
 let initialState = {
   dialogs: [
-    { id: 1, name: "Serhii" },
-    { id: 2, name: "Anatolii" },
-    { id: 3, name: "Petro" },
-    { id: 4, name: "Iliia" },
-    { id: 5, name: "Aurel" },
+    { id: v1(), name: "Serhii" },
+    { id: v1(), name: "Anatolii" },
+    { id: v1(), name: "Petro" },
+    { id: v1(), name: "Iliia" },
+    { id: v1(), name: "Aurel" },
   ] as Array<DialogType>,
   messages: [
-    { id: 1, message: "Its alive" },
-    { id: 2, message: "Nice" },
-    { id: 3, message: "Hi" },
-    { id: 4, message: "(;" },
-    { id: 5, message: "):" },
+    { id: v1(), message: "Its alive" },
+    { id: v1(), message: "Nice" },
+    { id: v1(), message: "Hi" },
+    { id: v1(), message: "(;" },
+    { id: v1(), message: "):" },
   ] as Array<MessageType>,
 };
 
@@ -41,7 +42,7 @@ export const dialogReducer = (state = initialState, action: ActionsTypes): Initi
       let body = action.newMessageBody;
       return {
         ...state,
-        messages: [...state.messages, { id: 98, message: body }]
+        messages: [...state.messages, { id: v1(), message: body }]
       };
     default:
       return state;

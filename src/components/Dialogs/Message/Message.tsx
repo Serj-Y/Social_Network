@@ -4,7 +4,7 @@ import s from "./../Dialogs.module.css";
 
 type PropsType = {
 message: string
-id: number
+id: string
 }
 
 const Message: React.FC<PropsType> = (props) => {

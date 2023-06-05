@@ -2,15 +2,16 @@ import { stopSubmit } from "redux-form";
 import { profileApi } from "../apiComponents/profileApi";
 import { ProfileType, PhotosType, PostsType, CommonThunkType } from "../components/Common/Types/Types";
 import { InferActionsTypes } from "./reduxStore";
+import { v1 } from "uuid";
 
 
 let initialState = {
     posts: [
-        { id: 1, message: "Hi", likesCount: 13 },
-        { id: 2, message: "Hello World", likesCount: 24 },
-        { id: 3, message: "post", likesCount: 83 },
-        { id: 4, message: "(;", likesCount: 39 },
-        { id: 5, message: "):", likesCount: 45 },
+        { id: v1(), message: "Hi", likesCount: 13 },
+        { id: v1(), message: "Hello World", likesCount: 24 },
+        { id: v1(), message: "post", likesCount: 83 },
+        { id: v1(), message: "(;", likesCount: 39 },
+        { id: v1(), message: "):", likesCount: 45 },
     ] as Array<PostsType>,
     profile: null as ProfileType | null,
     status: "",
@@ -23,7 +24,7 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
     switch (action.type) {
         case "ADD-POST": {
             let newPost = {
-                id: 5,
+                id: v1(),
                 message: action.newPostText,
                 likesCount: 0,
             };

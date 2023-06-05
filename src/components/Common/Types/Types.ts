@@ -4,7 +4,7 @@ import { ThunkAction } from "redux-thunk"
 
 
 export type PostsType = {
-    id: number
+    id: string
     message: string
     likesCount: number
 }

@@ -74,7 +74,7 @@ export const profileContent = (userId: number): ThunkType => async (dispatch) =>
 
 export const getStatus = (userId: number): ThunkType => async (dispatch) => {
     let response = await profileApi.getStatus(userId)
-    dispatch(actions.setStatus(response.statusText));
+    dispatch(actions.setStatus(response.data));
 };
 
 export const updateStatus = (status: string): ThunkType => async (dispatch) => {

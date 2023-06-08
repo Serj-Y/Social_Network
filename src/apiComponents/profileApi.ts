@@ -11,7 +11,7 @@ export const profileApi = {
     },
 
     getStatus(userId: number) {
-        return instance.get<ProfileType>(`profile/status/` + userId);
+        return instance.get<string>(`profile/status/` + userId);
     },
 
     updateStatus(status: string) {

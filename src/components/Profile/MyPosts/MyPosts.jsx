@@ -9,9 +9,9 @@ import { CreateFields } from "../../Common/FormsControls/FormsControls";
 const maxLength = maxLengthCreator(50);
 const minLength = minLengthCreator(2);
 
-let AddNewPostForm = (props) => {
+let AddNewPostForm = ({handleSubmit}) => {
     return (
-        <form onSubmit={props.handleSubmit} >
+        <form onSubmit={handleSubmit} >
             {CreateFields("Enter your post-message", "newPostText", [required, maxLength, minLength], Textarea)}
             <button>Post</button>
         </form>
@@ -22,7 +22,7 @@ let AddNewPostFormRedux = reduxForm({ form: "profileAddNewPostForm" })(AddNewPos
 
 const MyPosts = React.memo(props => {
     let postsElements = props.posts.map(posts => <Post
-    key={posts.id}
+        key={posts.id}
         message={posts.message}
         id={posts.id}
         likesCount={posts.likesCount} />);

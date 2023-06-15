@@ -2,16 +2,15 @@ import React from "react";
 import style from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
-import { InjectedFormProps, reduxForm } from "redux-form";
-import { required, maxLengthCreator, minLengthCreator } from "../Common/Validators/Validators";
-import { Textarea } from "../Common/FormsControls/FormsControls";
-import { CreateFields } from "../Common/FormsControls/FormsControls";
+import { reduxForm } from "redux-form";
+import { maxLengthCreator, minLengthCreator } from "../Common/Validators/Validators";
 import { InitialStateType } from "../../Redux/dialogsReducer";
+import { AddMessageForm } from "./AddMessageForm";
 
 
 
-const maxLength = maxLengthCreator(50);
-const minLength = minLengthCreator(2);
+export const maxLength = maxLengthCreator(50);
+export const minLength = minLengthCreator(2);
 
 
 
@@ -21,11 +20,7 @@ type PropsType = {
 }
 
 
-type MapDispatchType = {
-  
-}
-
-type NewMessagesValuesKeysType = Extract <keyof NewMessagesType, string>
+export type NewMessagesValuesKeysType = Extract <keyof NewMessagesType, string>
 
 export type NewMessagesType = {
   newMessageBody: string
@@ -55,19 +50,5 @@ const Dialogs: React.FC<PropsType> = (props) => {
     </div>
   )
 }
-const AddMessageForm: React.FC <InjectedFormProps<NewMessagesType>> = (props) => {
-  return (
-    <form onSubmit={props.handleSubmit} >
-      <div>
-         {CreateFields<NewMessagesValuesKeysType>("Enter your message", "newMessageBody", [required, maxLength, minLength], Textarea)}
-      </div>
-     
-      <div className={style.button}>
-        <button>Send Message</button>
-      </div>
-    </form>
-  )
-}
-
 const AddMessageFormRedux = reduxForm<NewMessagesType>({ form: "dialogAddMessageForm" })(AddMessageForm)
 export default Dialogs;

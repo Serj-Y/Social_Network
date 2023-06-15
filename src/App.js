@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { Redirect, withRouter } from "react-router-dom/cjs/react-router-dom";
-import { Route } from "react-router-dom/cjs/react-router-dom.min";
+import { Redirect, withRouter } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import { initializeApp } from "./Redux/AppReducer";

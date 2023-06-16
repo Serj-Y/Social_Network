@@ -12,7 +12,6 @@ export const AddMessageForm: React.FC<InjectedFormProps<NewMessagesType>> = (pro
       <div>
         {CreateFields<NewMessagesValuesKeysType>("Enter your message", "newMessageBody", [required, maxLength, minLength], Textarea)}
       </div>
-
       <div className={style.button}>
         <button>Send Message</button>
       </div>

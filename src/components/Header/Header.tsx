@@ -1,8 +1,16 @@
 import React from "react";
 import s from "./Header.module.css";
-import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const Header = React.memo(props => {
+
+type PropsType = {
+    isAuth: boolean
+    login: string| null
+    logout: () => void
+
+}
+
+const Header: React.FC<PropsType>  = (props) => {
     return <header className={s.header}>
         <img src="https://png.pngtree.com/png-vector/20190328/ourmid/pngtree-simple-mountain-logo-designs-png-image_878392.jpg"></img>
         <div className={s.loginBlock} >
@@ -12,7 +20,7 @@ const Header = React.memo(props => {
             }
         </div>
     </header>
-})
+}
 
 
 export default Header;

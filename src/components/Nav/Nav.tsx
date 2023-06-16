@@ -2,7 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Nav.module.css";
 
-const Nav = (props) => {
+type PropsType = {
+
+}
+
+
+const Nav: React.FC<PropsType>  = (props) => {
   return (
     <nav className={style.nav} >
       <div className={style.item} >

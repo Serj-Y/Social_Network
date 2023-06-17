@@ -5,11 +5,20 @@ import { maxLengthCreator, minLengthCreator, required } from "../../Common/Valid
 import s from "./MyPosts.module.css";
 import Post from "./Posts/Post";
 import { CreateFields } from "../../Common/FormsControls/FormsControls";
+import { PostsType } from "../../Common/Types/Types";
 
 const maxLength = maxLengthCreator(50);
 const minLength = minLengthCreator(2);
 
-let AddPostForm = (props) => {
+type PropsType = {
+    // Bad solution 
+    [x: string]: any;
+// Fix it !!!!!!!!!!
+}
+
+
+
+let AddPostForm = (props: { handleSubmit: React.FormEventHandler<HTMLFormElement> }) => {
     return (
         <form onSubmit={props.handleSubmit} >
             {CreateFields("Enter your post-message", "newPostText", [required, maxLength, minLength], Textarea)}
@@ -20,14 +29,15 @@ let AddPostForm = (props) => {
 
 let AddPostFormRedux = reduxForm({ form: "profileAddNewPostForm" })(AddPostForm)
 
-const MyPosts = React.memo(props => {
-    let postsElements = props.posts.map(posts => <Post
+const MyPosts: React.FC<PropsType> = (props) => {
+
+    let postsElements = props.posts.map((posts: PostsType) => <Post
         key={posts.id}
         message={posts.message}
-        id={posts.id}
         likesCount={posts.likesCount} />);
-    let onAddPost = (values) => {
-        props.addPost(values.newPostText);
+
+    let onAddPost: React.FC<PropsType>  = (values) => {
+        return props.addPost(values.newPostText);
     }
     return (
         <div className={s.postsBlock}>
@@ -38,6 +48,6 @@ const MyPosts = React.memo(props => {
             </div>
         </div>
     )
-})
+}
 
 export default MyPosts

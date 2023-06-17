@@ -23,7 +23,7 @@ let mapStateToProps = (state: AppStateType) => ({
     login: state.auth.login,
 });
 
-export default compose(
+export default compose<React.ComponentType>(
     connect(
         mapStateToProps,
         { logout })

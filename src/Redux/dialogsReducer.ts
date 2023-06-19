@@ -27,14 +27,14 @@ let initialState = {
   ] as Array<MessageType>,
 };
 
-type ActionsTypes = InferActionsTypes<typeof actions>
-
-export type InitialStateType = typeof initialState
-
 export const actions = {
   sendMessage: (newMessageBody: string) =>
     ({ type: "SEND-MESSAGE", newMessageBody }) as const
 }
+type ActionsTypes = InferActionsTypes<typeof actions>
+
+export type InitialStateType = typeof initialState
+
 
 export const dialogReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {

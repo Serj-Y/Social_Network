@@ -13,7 +13,7 @@ const minLength = minLengthCreator(2);
 type PropsType = {
     // Bad solution 
     [x: string]: any;
-// Fix it !!!!!!!!!!
+    // Fix it !!!!!!!!!!
 }
 
 
@@ -26,8 +26,8 @@ let AddPostForm = (props: { handleSubmit: React.FormEventHandler<HTMLFormElement
         </form>
     )
 }
-
 let AddPostFormRedux = reduxForm({ form: "profileAddNewPostForm" })(AddPostForm)
+
 
 const MyPosts: React.FC<PropsType> = (props) => {
 
@@ -36,7 +36,7 @@ const MyPosts: React.FC<PropsType> = (props) => {
         message={posts.message}
         likesCount={posts.likesCount} />);
 
-    let onAddPost: React.FC<PropsType>  = (values) => {
+    let onAddPost: React.FC<PropsType> = (values) => {
         return props.addPost(values.newPostText);
     }
     return (
@@ -49,5 +49,7 @@ const MyPosts: React.FC<PropsType> = (props) => {
         </div>
     )
 }
+
+
 
 export default MyPosts

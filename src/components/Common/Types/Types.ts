@@ -11,6 +11,7 @@ export type PostsType = {
 }
 
 export type ContactsObjectType = {
+
     github: string
     vk: string
     facebook: string
@@ -27,6 +28,7 @@ export type PhotosType = {
 }
 
 export type ProfileType = {
+    aboutMe: string
     userId: number
     lookingForAJob: boolean
     lookingForAJobDescription: string

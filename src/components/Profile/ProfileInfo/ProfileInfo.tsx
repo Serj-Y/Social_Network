@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, ChangeEventHandler } from "react";
 import style from "./ProfileInfo.module.css"
 import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatusWidthHook from "./ProfileData/ProfileStatusWithHook";
@@ -6,9 +6,20 @@ import userPhotoDefault from "../../../assets/img/4314581-200.png"
 import { useState } from "react";
 import ProfileDataReduxForm from "./ProfileData/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
+import { ProfileType } from "../../Common/Types/Types";
 
 
-const ProfileInfo = (props) => {
+type PropsType = {
+profile: ProfileType
+status: string
+isOwner: boolean
+updateStatus: (status: string) => void
+savePhoto: (file: File) => void
+saveProfile: (profile:ProfileType) => Promise<any>
+}
+
+
+const ProfileInfo: React.FC<PropsType> = (props) => {
 
     let [editMode, setEditMode] = useState(false);
 
@@ -16,13 +27,13 @@ const ProfileInfo = (props) => {
         return <Preloader />
     }
 
-    const onMainPhotoSelected = (e) => {
-        if (e.target.files.length) {
+    const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files?.length) {
             props.savePhoto(e.target.files[0]);
         }
     }
 
-    const onSubmit = (formData) => {
+    const onSubmit = (formData: ProfileType) => {
      props.saveProfile(formData)
      .then(() => {
               setEditMode(false);
@@ -32,7 +43,7 @@ const ProfileInfo = (props) => {
 
     return (
         <div className={style.descriptionBlock}>
-            <img src={props.profile.photos.large != null ? props.profile.photos.small : userPhotoDefault} />
+            <img src={props.profile.photos.large  ||  userPhotoDefault} />
             <div>{props.isOwner &&  <input  type="file" onChange={onMainPhotoSelected} />}</div>
             <div>
                 <ProfileStatusWidthHook
@@ -44,7 +55,7 @@ const ProfileInfo = (props) => {
                     initialValues={props.profile}
                     onSubmit={onSubmit}
                     profile={props.profile}
-                    error={props.error}
+                    
 
                 />
                 : <ProfileData

@@ -1,6 +1,6 @@
 import React from "react";
 import { InjectedFormProps, reduxForm } from "redux-form";
-import { Input } from "../Common/FormsControls/FormsControls";
+import { GetStringKeys, Input } from "../Common/FormsControls/FormsControls";
 import { required } from "../Common/Validators/Validators";
 import { connect } from "react-redux";
 import { login } from "../../Redux/authReducer";
@@ -54,7 +54,7 @@ export type LoginFormValuesType = {
     captcha: string 
 }
 
-type LoginFormValueTypeKeys = Extract <keyof LoginFormValuesType, string>
+type LoginFormValueTypeKeys = GetStringKeys<LoginFormValuesType>
 
 
 

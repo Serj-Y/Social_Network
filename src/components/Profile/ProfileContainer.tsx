@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { actions, profileContent, updateStatus, savePhoto, saveProfile, getStatus } from "../../Redux/profileReducer";
@@ -10,8 +10,6 @@ import { ProfileType } from "../Common/Types/Types";
 import { RouteComponentProps } from "react-router-dom";
 
 
-type MapStatePropsType = ReturnType<typeof mapStateToProps > 
-
 type MapDispatchPropsType = {
 profileContent: (userID: number) => void
 getStatus: (userId: number) => void
@@ -21,11 +19,13 @@ saveProfile: (profile: ProfileType) => void
 savePhoto: (file: any) => void
 }
 
-type PathParamsType = {
+type PathParamsType = {}
 
-}
+
 
 type PropsType = MapStatePropsType & MapDispatchPropsType & RouteComponentProps<PathParamsType>
+
+
 
 class ProfileContainer extends React.Component<PropsType> 
 {
@@ -69,6 +69,8 @@ let mapStateToProps = (state: AppStateType) => ({
     isAuth: state.auth.isAuth,
     AuthUserId: state.auth.userId,
 });
+
+type MapStatePropsType = ReturnType<typeof mapStateToProps > 
 
 let setUserProfile = actions.setUserProfile
 

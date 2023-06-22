@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { Redirect, withRouter } from "react-router-dom";
-import { Route } from "react-router-dom";
+import { Redirect, Route, withRouter, BrowserRouter } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import { initializeApp } from "./Redux/AppReducer";
@@ -9,11 +8,14 @@ import Preloader from "./components/Common/Preloader/Preloader";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import Music from "./components/Music/Music";
-import UsersContainer from "./components/Users/UsersContainer";
 import Nav from "./components/Nav/Nav";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import UsersContainer from "./components/Users/UsersContainer";
 import { widthSuspense } from "./hoc/withSuspense";
+import store from "./Redux/reduxStore";
+import { Provider } from "react-redux"; 
+
 
 
 
@@ -63,6 +65,17 @@ const mapStateToProps = (state) => ({
 
 })
 
-export default compose(
+let AppContainer = compose(
   withRouter,
-  connect(mapStateToProps, { initializeApp }))(App);
+  connect(mapStateToProps, {initializeApp}))(App);
+
+const MyApp = (props) => {
+  return <BrowserRouter>
+      <Provider store={store}>
+          <AppContainer/>
+      </Provider>
+  </BrowserRouter>
+}
+
+export default MyApp;
+

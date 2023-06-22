@@ -16,10 +16,12 @@ getStatus: (userId: number) => void
 refreshProfile: (userId: number, AuthUserId: number) => void
 updateStatus: (status: string) => void
 saveProfile: (profile: ProfileType) => void
-savePhoto: (file: any) => void
+savePhoto: (file: File) => void
 }
 
-type PathParamsType = {}
+type PathParamsType = {
+    userId: string
+}
 
 
 

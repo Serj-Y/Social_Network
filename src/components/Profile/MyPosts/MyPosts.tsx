@@ -1,42 +1,26 @@
 import React from "react";
-import { reduxForm } from "redux-form";
-import { Textarea } from "../../Common/FormsControls/FormsControls";
-import { maxLengthCreator, minLengthCreator, required } from "../../Common/Validators/Validators";
 import s from "./MyPosts.module.css";
 import Post from "./Posts/Post";
-import { CreateFields } from "../../Common/FormsControls/FormsControls";
 import { PostsType } from "../../Common/Types/Types";
+import { AddPostFormValueType, AddPostFormRedux } from "./AddPostFormValueType";
 
-const maxLength = maxLengthCreator(50);
-const minLength = minLengthCreator(2);
 
-type PropsType = {
-    // Bad solution 
-    [x: string]: any;
-    // Fix it !!!!!!!!!!
+export type MapPropsType = {
+    posts: Array<PostsType>
 }
 
-
-
-let AddPostForm = (props: { handleSubmit: React.FormEventHandler<HTMLFormElement> }) => {
-    return (
-        <form onSubmit={props.handleSubmit} >
-            {CreateFields("Enter your post-message", "newPostText", [required, maxLength, minLength], Textarea)}
-            <button>Post</button>
-        </form>
-    )
+export type DispatchPropsType = {
+    addPost: (newPostText: string) => void
 }
-let AddPostFormRedux = reduxForm({ form: "profileAddNewPostForm" })(AddPostForm)
 
-
-const MyPosts: React.FC<PropsType> = (props) => {
+const MyPosts: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 
     let postsElements = props.posts.map((posts: PostsType) => <Post
         key={posts.id}
         message={posts.message}
         likesCount={posts.likesCount} />);
 
-    let onAddPost: React.FC<PropsType> = (values) => {
+    let onAddPost = (values: AddPostFormValueType) => {
         return props.addPost(values.newPostText);
     }
     return (

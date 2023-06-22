@@ -1,26 +1,15 @@
-import { compose } from "redux";
 import { actions } from "../../../Redux/profileReducer";
-import MyPosts from "./MyPosts";
+import MyPosts, { MapPropsType, DispatchPropsType } from "./MyPosts";
 import { connect } from "react-redux";
 import { AppStateType } from "../../../Redux/reduxStore";
-import React from "react";
 
-const mapStateToProps = (state: AppStateType) => {
+
+const MapStateToProps = (state: AppStateType) => {
     return {
         posts: state.profilePage.posts,
-        newPostText: state.profilePage.newPostText,
+        
     }
 };
-// Dispatch type it works but need fix!!! 
+const MyPostContainer = connect<MapPropsType, DispatchPropsType, {}, AppStateType> (MapStateToProps,{ addPost: actions.addPostActionCreator })(MyPosts)
 
-const mapDispatchToProps = (dispatch: (arg0: { readonly type: "ADD-POST"; readonly newPostText: string; }) => void ) => {
-    return {
-        addPost: (newPostText: string) => {
-            dispatch(actions.addPostActionCreator(newPostText));
-        }
-    }
-};
-
-export default compose<React.ComponentType> ( 
-    connect(mapStateToProps, mapDispatchToProps),
-)(MyPosts);
+export default MyPostContainer 

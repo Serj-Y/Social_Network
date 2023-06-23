@@ -11,9 +11,7 @@ let mapStateToPropsForRedirect = (state: AppStateType) => ({
 type PropsType = {
     isAuth: boolean
 }
-type ComponentType = {
-    Component: () => void
-}
+
 
 export const withAuthRedirect = (Component: any) => {
 const RedirectComponent: React.FC<PropsType>  = (props) => {

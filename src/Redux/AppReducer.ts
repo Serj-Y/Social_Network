@@ -16,7 +16,7 @@ export type initialStateType = typeof initialState
 type ActionType = InferActionsTypes<typeof actions>
 
 
-const appReducer = (state = initialState, action: any): initialStateType => {
+const appReducer = (state = initialState, action: ActionType): initialStateType => {
     switch (action.type) {
         case "INITIALIZED-SUCCESS":
             return {

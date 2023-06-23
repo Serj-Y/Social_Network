@@ -11,11 +11,11 @@ import { RouteComponentProps } from "react-router-dom";
 
 
 type MapDispatchPropsType = {
-profileContent: (userID: number) => void
-getStatus: (userId: number) => void
+profileContent: (userID: number |  null) => void
+getStatus: (userId: number | null) => void
 refreshProfile: (userId: number, AuthUserId: number) => void
 updateStatus: (status: string) => void
-saveProfile: (profile: ProfileType) => void
+saveProfile: (profile: ProfileType) => Promise<any>
 savePhoto: (file: File) => void
 }
 
@@ -32,7 +32,7 @@ type PropsType = MapStatePropsType & MapDispatchPropsType & RouteComponentProps<
 class ProfileContainer extends React.Component<PropsType> 
 {
     refreshProfile()  {
-        let userId = this.props.match.params.userId;
+        let userId: number | null = + this.props.match.params.userId;
         if (!userId) {
             userId = this.props.AuthUserId;
             if (!userId) {

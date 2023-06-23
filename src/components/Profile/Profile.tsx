@@ -5,7 +5,7 @@ import { ProfileType } from "../Common/Types/Types";
 
 type PropsType = {
     isOwner: boolean
-    profile: ProfileType
+    profile: ProfileType | null
     status: string
     updateStatus: (status: string) => void
     savePhoto: (file: File) => void

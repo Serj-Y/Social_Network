@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect, Route, withRouter, BrowserRouter } from "react-router-dom";
+import { Redirect, Route, withRouter, BrowserRouter, Switch } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import { initializeApp } from "./Redux/AppReducer";
@@ -13,7 +13,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
 import { widthSuspense } from "./hoc/withSuspense";
-import store from "./Redux/reduxStore";
+import store, { AppStateType } from "./Redux/reduxStore";
 import { Provider } from "react-redux"; 
 
 
@@ -23,8 +23,17 @@ const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileCo
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"))
 
 
-class App extends PureComponent {
-  catchAllUnhandledErrors = (PromiseRejectionEvent) => {
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+    initializeApp: () => void
+}
+
+const SuspendedDialogs = widthSuspense(DialogsContainer)
+const SuspendedProfile = widthSuspense(ProfileContainer)
+
+
+class App extends Component<MapPropsType & DispatchPropsType> {
+  catchAllUnhandledErrors = (PromiseRejectionEvent: any) => {
     alert(PromiseRejectionEvent)
   }
   componentDidMount() {
@@ -46,30 +55,32 @@ class App extends PureComponent {
         <HeaderContainer />
         <Nav />
         <div className="app-wrapper-content">
+          <Switch>
           <Route exact path="/" render={() => <Redirect to={"/profile"} />} />
-          <Route path="/profile/:userId?" render={widthSuspense(ProfileContainer)} />
-          <Route path="/messages" render={widthSuspense(DialogsContainer)} />
-          <Route path="/users" render={() => <UsersContainer pageTitle={"users"} />} />
+          <Route path="/profile/:userId?" render={() =><SuspendedProfile/>} />
+          <Route path="/messages" render={() => <SuspendedDialogs/>} />
+          <Route path="/users" render={() => <UsersContainer pageNumber={0} pageTitle={""}  />} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/settings" render={() => <Settings />} />
+          </Switch>
         </div>
       </div>
     )
   };
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   initialized: state.app.initialized,
 
 })
 
-let AppContainer = compose(
+let AppContainer = compose<React.ComponentType>(
   withRouter,
   connect(mapStateToProps, {initializeApp}))(App);
 
-const MyApp = (props) => {
+const MyApp: React.FC = () => {
   return <BrowserRouter>
       <Provider store={store}>
           <AppContainer/>

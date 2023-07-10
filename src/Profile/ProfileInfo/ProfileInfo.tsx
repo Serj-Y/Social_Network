@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler } from "react";
+import React, { ChangeEvent } from "react";
 import style from "./ProfileInfo.module.css"
 import Preloader from "../../Common/Components/Preloader/Preloader";
 import ProfileStatusWidthHook from "./ProfileData/ProfileStatusWithHook";
@@ -10,12 +10,12 @@ import { ProfileType } from "../../Common/Components/Types/Types";
 
 
 type PropsType = {
-profile: ProfileType | null
-status: string
-isOwner: boolean
-updateStatus: (status: string) => void
-savePhoto: (file: File) => void
-saveProfile: (profile:ProfileType) => Promise<any>
+    profile: ProfileType | null
+    status: string
+    isOwner: boolean
+    updateStatus: (status: string) => void
+    savePhoto: (file: File) => void
+    saveProfile: (profile: ProfileType) => Promise<any>
 }
 
 
@@ -34,17 +34,17 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
     }
 
     const onSubmit = (formData: ProfileType) => {
-     props.saveProfile(formData)
-     .then(() => {
-              setEditMode(false);
-     })
-  
+        props.saveProfile(formData)
+            .then(() => {
+                setEditMode(false);
+            })
+
     }
 
     return (
         <div className={style.descriptionBlock}>
-            <img src={props.profile.photos.large  ||  userPhotoDefault} />
-            <div >{props.isOwner &&  <input className={style.InputBtn} type="file"  onChange={onMainPhotoSelected} />}</div>
+            <img alt="userPhoto" src={props.profile.photos.large || userPhotoDefault} />
+            <div >{props.isOwner && <input className={style.InputBtn} type="file" onChange={onMainPhotoSelected} />}</div>
             <div>
                 <ProfileStatusWidthHook
                     status={props.status}
@@ -55,8 +55,6 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
                     initialValues={props.profile}
                     onSubmit={onSubmit}
                     profile={props.profile}
-                    
-
                 />
                 : <ProfileData
                     profile={props.profile}

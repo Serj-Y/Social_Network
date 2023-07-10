@@ -7,7 +7,7 @@ type PropsType = {
 
 let Preloader: React.FC<PropsType> = (props) => {
     return <div>
-        <img src={preLoader} style={{ maxWidth: "55px" }} />
+        <img src={preLoader} alt="preLoader" style={{ maxWidth: "55px" }} />
     </div>
 }
 

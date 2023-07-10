@@ -23,4 +23,4 @@ let AddPostForm: React.FC<InjectedFormProps<AddPostFormValueType, AddPostPropsTy
         </form>
     );
 };
-export let AddPostFormRedux = reduxForm<AddPostFormValueType, AddPostPropsType>({ form: "profileAddNewPostForm" })(AddPostForm);
+export const AddPostFormRedux = reduxForm<AddPostFormValueType, AddPostPropsType>({ form: "profileAddNewPostForm" })(AddPostForm);

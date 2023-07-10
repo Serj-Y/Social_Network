@@ -1,11 +1,14 @@
 .nav {
   grid-area: n;
-  background-color: #122543;
+padding-top: 100px;
   text-align: center;
+  position: fixed;
+  width: 120px;
 }
 
 .item  {
   text-decoration: none;
+
 
 }
 
@@ -14,7 +17,7 @@ a.active {
   text-shadow: 3px;
   text-decoration: solid;
   text-decoration-line: underline;
-  text-decoration-color: black;
+  text-decoration-color:dodgerblue;
 }
 
 .link{

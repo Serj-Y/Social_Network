@@ -8,10 +8,11 @@ width: auto;
 
   grid-template-rows: 90px 1fr;
   grid-template-columns: 128px 2fr;
+ 
 }
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: aquamarine;
+
 
 }

@@ -44,7 +44,7 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
     return (
         <div className={style.descriptionBlock}>
             <img src={props.profile.photos.large  ||  userPhotoDefault} />
-            <div>{props.isOwner &&  <input  type="file" onChange={onMainPhotoSelected} />}</div>
+            <div >{props.isOwner &&  <input className={style.InputBtn} type="file"  onChange={onMainPhotoSelected} />}</div>
             <div>
                 <ProfileStatusWidthHook
                     status={props.status}

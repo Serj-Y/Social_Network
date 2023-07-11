@@ -32,7 +32,6 @@ export const UserSearchForm: React.FC<PropsType> =(props) => {
 
   return (
     <div>
-      <h1>Search</h1>
       <Formik
         initialValues={{ term: '', friend: "null" }}
         validate={UserSearchFormValue}

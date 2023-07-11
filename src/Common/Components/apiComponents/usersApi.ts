@@ -5,8 +5,8 @@ import { AxiosPromise } from "axios";
 
 export const usersApi = {
 
-    requestUsers(currentPage: number, pageSize: number) {
-        return instance.get<GetItemsType>(`users?page=${currentPage}&count=${pageSize}`)
+    requestUsers(currentPage: number, pageSize: number, term: string = "", friend: null| boolean = null) {
+        return instance.get<GetItemsType>(`users?page=${currentPage}&count=${pageSize}&term=${term}` + (friend === null ? "" : `&friend=${friend}`))
     },
 
     follow(userId: number) {

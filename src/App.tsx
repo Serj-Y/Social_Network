@@ -6,7 +6,7 @@ import "./App.css";
 import { initializeApp } from "./Common/Components/Redux/AppReducer";
 import Preloader from "./Common/Components/Preloader/Preloader";
 import HeaderContainer from "./Header/HeaderContainer";
-import Login from "./Login/Login";
+import {Login} from "./Login/Login";
 import Music from "./Music/Music";
 import Nav from "./Nav/Nav";
 import News from "./News/News";

@@ -15,10 +15,12 @@ export type DispatchPropsType = {
 
 const MyPosts: React.FC<MapPropsType & DispatchPropsType> = (props) => {
 
-    let postsElements = props.posts.map((posts: PostsType) => <Post
+    let postsElements = props.posts.map((posts: PostsType) =>
+     <Post
         key={posts.id}
         message={posts.message}
-        likesCount={posts.likesCount} />);
+        likesCount={posts.likesCount} 
+        />);
 
     let onAddPost = (values: AddPostFormValueType) => {
         return props.addPost(values.newPostText);

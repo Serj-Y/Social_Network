@@ -9,13 +9,14 @@ import ProfileData from "./ProfileData/ProfileData";
 import { ProfileType } from "../../Common/Components/Types/Types";
 
 
+
 type PropsType = {
     profile: ProfileType | null
     status: string
     isOwner: boolean
     updateStatus: (status: string) => void
     savePhoto: (file: File) => void
-    saveProfile: (profile: ProfileType) => Promise<any>
+    saveProfile: (formData: ProfileType) => Promise<any>
 }
 
 
@@ -38,9 +39,9 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
             .then(() => {
                 setEditMode(false);
             })
-
     }
 
+    
     return (
         <div className={style.descriptionBlock}>
             <img alt="userPhoto" src={props.profile.photos.large || userPhotoDefault} />

@@ -5,7 +5,6 @@ import { compose } from "redux";
 import "./App.css";
 import { initializeApp } from "./Common/Components/Redux/AppReducer";
 import Preloader from "./Common/Components/Preloader/Preloader";
-import HeaderContainer from "./Header/HeaderContainer";
 import {Login} from "./Login/Login";
 import Music from "./Music/Music";
 import Nav from "./Nav/Nav";
@@ -15,6 +14,7 @@ import { widthSuspense } from "./Common/Components/hoc/withSuspense";
 import store, { AppStateType } from "./Common/Components/Redux/reduxStore";
 import { Provider } from "react-redux";
 import { UsersPage } from "./Users/UsersContainer";
+import { Header } from "./Header/Header";
 
 
 
@@ -53,7 +53,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
 
     return (
       <div className="app-wrapper" >
-        <HeaderContainer />
+        <Header />
         <Nav />
         <div className="app-wrapper-content">
           <Switch>

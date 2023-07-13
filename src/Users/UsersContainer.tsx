@@ -6,8 +6,6 @@ import { getIsFetching } from "../Common/Components/Redux/userSelectors";
 
 
 
-type UserPagePropsType = {}
-
 export const UsersPage = () => {
     const isFetching = useSelector(getIsFetching)
     return <>

@@ -21,8 +21,10 @@ import { Header } from "./Header/Header";
 
 
 
+
 const ProfileContainer = React.lazy(() => import("./Profile/ProfileContainer"))
 const DialogsContainer = React.lazy(() => import("./Dialogs/DialogsContainer"))
+
 
 
 type MapPropsType = ReturnType<typeof mapStateToProps>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { actions, profileContent, saveProfile, getStatus } from "../Common/Components/Redux/profileReducer";
@@ -12,7 +12,7 @@ import { RouteComponentProps } from "react-router-dom";
 
 
 type MapDispatchPropsType = {
-    profileContent: (userID: number | null) => void
+    profileContent: (userId: number | null) => void
     getStatus: (userId: number | null) => void
     refreshProfile: (userId: number, AuthUserId: number) => void
     saveProfile: (profile: ProfileType) => Promise<any>
@@ -31,7 +31,7 @@ class ProfileContainer extends React.Component<PropsType>
 {
     refreshProfile() {
 
-        let userId: number | null = + this.props.match.params.userId;
+        let userId: number | null =  Number(this.props.match.params.userId);
         if (!userId) {
             userId = this.props.AuthUserId;
             if (!userId) {
@@ -44,6 +44,9 @@ class ProfileContainer extends React.Component<PropsType>
     componentDidMount() {
         this.refreshProfile()
     }
+
+   
+
     componentDidUpdate(prevProps: PropsType) {
         if (this.props.match.params.userId !== prevProps.match.params.userId) {
             this.refreshProfile();

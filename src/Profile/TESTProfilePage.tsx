@@ -1,76 +1,56 @@
 // import React, { useEffect } from "react";
 // import Profile from "./Profile";
 // import { ProfileType } from "../Common/Components/Types/Types";
-// import { RouteComponentProps, useHistory } from "react-router";
+// import { useHistory } from "react-router";
 // import { useDispatch, useSelector } from "react-redux";
 // import { AppStateType } from "../Common/Components/Redux/reduxStore";
-// import { actions, getStatus, profileContent, saveProfile } from "../Common/Components/Redux/profileReducer";
-
-
-// type MapDispatchPropsType = {
-
-// }
-
-// type PathParamsType = {
-//     userId: string
-// }
-
-
-
-// type PropsType =  MapDispatchPropsType & RouteComponentProps<PathParamsType>
-
-//  const TESTProfilePage = (props: PropsType) => {
-
-
-// const history = useHistory()
-// const dispatch = useDispatch()
-
-// const authUserId = useSelector((state:AppStateType) => state.auth.userId)
-// const UserId = useSelector((state: AppStateType) => state.profilePage.profile?.userId)
-// const profile = useSelector((state: AppStateType) => state.profilePage.profile)
+// import { getStatus, profileContent } from "../Common/Components/Redux/profileReducer";
 
 
 
 
-// const ProfileContent  =(userId: number) =>{
-//     dispatch(profileContent(userId))
-//   }
+// const TESTProfilePage = () => {
+//     const history = useHistory()
+//     const dispatch = useDispatch()
 
-//   const GetStatus  =(userId: number) =>{
-//     dispatch(getStatus(userId) )
-//   }
+//     const authUserId = useSelector((state: AppStateType) => state.auth.userId)
 
-
-// useEffect(()=> {
-//     let userId: any = UserId
-//     if (!userId) {
-//         userId = authUserId
-//         if(!userId) {
-//             history.push("/login")
-//         }
+//     const ProfileContent = (userId: number) => {
+//         dispatch(profileContent(userId))
 //     }
 
-// ProfileContent(userId);
-// GetStatus(userId);
+//     const GetStatus = (userId: number) => {
+//         dispatch(getStatus(userId))
+//     }
 
-//    debugger
-// }, [])
+//     const urlUserId = history.location.pathname.substring(9)
+//     useEffect(() => {
+//         let userId: any = urlUserId
+//         if (!userId) {
+//             userId = authUserId
+//             if (!userId) {
+//                 history.push("/login")
+//             }
+//         }
+//         ProfileContent(userId)
+//         GetStatus(userId)
+//     }, [history.location.pathname])
 
-//      function SaveP(profile: ProfileType): Promise<any> {
-//          throw new Error("Function not implemented.");
-//      }
+
+//     function SaveP(profile: ProfileType): Promise<any> {
+//         throw new Error("Function not implemented.");
+//     }
 
 //     return (
 //         <div>
 //             <h1>TEST!!!</h1>
-//             <Profile 
-//             isOwner={!!authUserId} 
-//             saveProfile= {SaveP}   />
+//             <Profile
+//                 isOwner={!urlUserId}
+//                 saveProfile={SaveP} />
 //         </div>
-
 //     );
 
 // };
 
-    
+
 // export default TESTProfilePage

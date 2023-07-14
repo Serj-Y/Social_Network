@@ -12,6 +12,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/redux-form": "^8.3.5",
     "@types/uuid": "^9.0.1",
+    "antd": "^5.7.0",
     "axios": "0.18.0",
     "classnames": "^2.3.2",
     "formik": "2.1.5",

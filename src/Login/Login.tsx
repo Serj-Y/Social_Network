@@ -5,7 +5,7 @@ import { required } from "../Common/Components/Validators/Validators";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Common/Components/Redux/authReducer";
 import { Redirect } from "react-router-dom";
-import style from "../Common/Components/FormsControls/FormsControls.module.scss"
+import style from "../Common/Components/FormsControls/FormsControls.module.css"
 import { CreateFields } from "../Common/Components/FormsControls/FormsControls";
 import { AppStateType } from "../Common/Components/Redux/reduxStore";
 

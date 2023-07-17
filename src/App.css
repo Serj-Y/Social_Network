@@ -1,4 +1,4 @@
-/* .app-wrapper {
+.app-wrapper {
   margin: 0 auto;
   display: grid;
 width: auto;
@@ -14,12 +14,5 @@ width: auto;
 .app-wrapper-content {
   grid-area: c;
 
-
-} */
-
-@import "./Common/Components/styles/sass/Variables.scss";
-@import "./Common/Components/styles/sass/mixins.scss";
-.App{
-  
 
 }

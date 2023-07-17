@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./FormsControls.module.scss"
+import styles from "./FormsControls.module.css"
 import { FieldValidatorType } from "../Validators/Validators"
 import { Field, WrappedFieldProps } from "redux-form"
 import { WrappedFieldMetaProps } from 'redux-form/lib/Field'

@@ -1,0 +1,25 @@
+.nav {
+  grid-area: n;
+padding-top: 100px;
+  text-align: center;
+  position: fixed;
+  width: 120px;
+}
+
+.item  {
+  text-decoration: none;
+
+
+}
+
+a.active {
+  text-align: left;
+  text-shadow: 3px;
+  text-decoration: solid;
+  text-decoration-line: underline;
+  text-decoration-color:dodgerblue;
+}
+
+.link{
+  padding: 5px; 
+}

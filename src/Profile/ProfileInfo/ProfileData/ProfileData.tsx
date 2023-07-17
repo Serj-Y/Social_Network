@@ -1,50 +1,47 @@
 import React from "react";
 import style from "../ProfileInfo.module.css"
 import { ContactsObjectType, ProfileType } from "../../../Common/Components/Types/Types";
-import { Button } from "react-bootstrap";
 
 
 type PropsType = {
     profile: ProfileType
-    isOwner: boolean
+     isOwner: boolean
     goToEditMode: () => void
 }
 
 const ProfileData: React.FC<PropsType> = ({ profile, isOwner, goToEditMode }) => {
     return (
-
-
-                <div>
-                {isOwner &&  <div><Button size="sm" onClick={goToEditMode} >Edit</Button></div>}
-                    <div>
-                        <b> Full Name</b>: {profile.fullName}
-                    </div>
-                    <div>
-                        <b>About Me</b>:   {profile.aboutMe}
-                    </div>
-                    <div>
-                        <b> Looking for a Job</b>: {profile.lookingForAJob ? "Yes" : "No"}
-                    </div>
-                    {profile.lookingForAJob &&
-                    <div>
-                        <b>Looking a Job</b>: {profile.lookingForAJobDescription}
-                    </div>
-        }
-                    <div>
-                        <b>Contacts</b>: {Object
-                        .keys(profile.contacts)
-                        .map((key) => {
-                        return <Contact
-                                key={key}
-                                contactTitle={key}
-                                contactValue={profile.contacts[key as keyof ContactsObjectType]} />})}
-                    </div>
-                </div>
+        <div>
+        {isOwner &&  <div><button onClick={goToEditMode} >edit</button></div>}
+            <div>
+                <b> Full Name</b>: {profile.fullName}
+            </div>
+            <div>
+                <b>About Me</b>:   {profile.aboutMe}
+            </div>
+            <div>
+                <b> Looking for a Job</b>: {profile.lookingForAJob ? "Yes" : "No"}
+            </div>
+            {profile.lookingForAJob &&
+            <div>
+                <b>Looking a Job</b>: {profile.lookingForAJobDescription}
+            </div>
+}
+            <div>
+                <b>Contacts</b>: {Object
+                .keys(profile.contacts)
+                .map((key) => {
+                return <Contact
+                        key={key}
+                        contactTitle={key}
+                        contactValue={profile.contacts[key as keyof ContactsObjectType]} />})}
+            </div>
+        </div>
     )
 }
 
 type ContactsPropsType = {
-    contactTitle: string
+    contactTitle: string 
     contactValue: string
 }
 

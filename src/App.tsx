@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, withRouter, BrowserRouter, Switch } from "react-router-dom";
 import { compose } from "redux";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
 import { initializeApp } from "./Common/Components/Redux/AppReducer";
 import Preloader from "./Common/Components/Preloader/Preloader";
 import {Login} from "./Login/Login";
@@ -14,9 +14,7 @@ import { widthSuspense } from "./Common/Components/hoc/withSuspense";
 import store, { AppStateType } from "./Common/Components/Redux/reduxStore";
 import { Provider } from "react-redux";
 import { UsersPage } from "./Users/UsersContainer";
-import { Head} from "./Header/Header";
-import style from "./App.module.scss"
-import ReactBootstrap, { Col, Container, Row } from "react-bootstrap";
+import { Header } from "./Header/Header";
 
 
 
@@ -26,7 +24,6 @@ import ReactBootstrap, { Col, Container, Row } from "react-bootstrap";
 
 const ProfileContainer = React.lazy(() => import("./Profile/ProfileContainer"))
 const DialogsContainer = React.lazy(() => import("./Dialogs/DialogsContainer"))
-
 
 
 
@@ -57,19 +54,12 @@ class App extends Component<MapPropsType & DispatchPropsType> {
       return <Preloader />
     }
 
-    return ( 
-  <div className={style.App} >
-     <Container className={style.Container} >
-      <Row lg="12" placeholder="top"  >
-        <Col > <Head /></Col>
-
-      </Row>
-      <Row lg="auto">
-        <Col xs={6} md={4}>
+    return (
+      <div className="app-wrapper" >
+        <Header />
         <Nav />
-        </Col>
-        <Col xs={12} md={8}>
-        <Switch>
+        <div className="app-wrapper-content">
+          <Switch>
             <Route exact path="/" render={() => <Redirect to={"/profile"} />} />
             <Route path="/profile/:userId?" render={() => <SuspendedProfile />} />
             <Route path="/messages" render={() => <SuspendedDialogs />} />
@@ -79,13 +69,8 @@ class App extends Component<MapPropsType & DispatchPropsType> {
             <Route path="/music" render={() => <Music />} />
             <Route path="/settings" render={() => <Settings />} />
           </Switch>
-        </Col>
-      </Row>
-        </Container>
-  </div>
-    
-     
-     
+        </div>
+      </div>
     )
   };
 }

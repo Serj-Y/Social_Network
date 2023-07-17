@@ -3,6 +3,7 @@ import { InjectedFormProps, reduxForm } from "redux-form";
 import { GetStringKeys, Textarea } from "../../Common/Components/FormsControls/FormsControls";
 import { maxLengthCreator, minLengthCreator, required } from "../../Common/Components/Validators/Validators";
 import { CreateFields } from "../../Common/Components/FormsControls/FormsControls";
+import { Button } from "react-bootstrap";
 
 
 export const maxLength = maxLengthCreator(50);
@@ -19,7 +20,7 @@ let AddPostForm: React.FC<InjectedFormProps<AddPostFormValueType, AddPostPropsTy
     return (
         <form onSubmit={props.handleSubmit}>
             {CreateFields<AddPostFormValueTypeKey>("Enter your post-message", "newPostText", [required, maxLength, minLength], Textarea)}
-            <button>Post</button>
+            <Button>Post</Button>
         </form>
     );
 };

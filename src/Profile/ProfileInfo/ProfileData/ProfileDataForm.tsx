@@ -2,21 +2,26 @@ import React from "react"
 import style from "../ProfileInfo.module.css"
 import { CreateFields, GetStringKeys, Input, Textarea } from "../../../Common/Components/FormsControls/FormsControls"
 import { InjectedFormProps, reduxForm } from "redux-form";
-import s from "../../../Common/Components/FormsControls/FormsControls.module.css"
+import s from "../../../Common/Components/FormsControls/FormsControls.module.scss"
 import { ProfileType } from "../../../Common/Components/Types/Types";
+import { Button, Col, Form, FormGroup, Row } from "react-bootstrap";
+
+
 
 type PropsType = {
     profile: ProfileType
-   
+
 }
 
 type ProfileTypeKeys = GetStringKeys<ProfileType>
 
-const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & PropsType>= ({ profile, handleSubmit, error }) => {
+const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & PropsType> = ({ profile, handleSubmit, error }) => {
     return (
         <form onSubmit={handleSubmit} >
             <div>
-                <button >Save Changes</button>
+                <Button size="sm" variant="primary" type="submit">
+                    Save Changes
+                </Button>
                 {error && <div className={s.formSummaryError} >
                     {error}</div>}
             </div>

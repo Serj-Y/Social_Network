@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Music.module.css"
+import s from "./Music.module.scss"
 
 const Music = React.memo(props => {
     return (

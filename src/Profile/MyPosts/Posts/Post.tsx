@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import s from './Post.module.css'
+import { Button } from "react-bootstrap";
 
 type PropsType ={
     message: string
@@ -21,7 +22,7 @@ const Post: React.FC<PropsType>  = (props) => {
                 <span>{props.message}</span>
             </div>
             <div>
-                <span><a onClick={() => setCount(count + 1)}>Like{count}</a> </span>
+                <span><Button onClick={() => setCount(count + 1)}>Like{count}</Button> </span>
             </div>
         </div>
     )

@@ -7,6 +7,8 @@ import { useState } from "react";
 import ProfileDataReduxForm from "./ProfileData/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
 import { ProfileType } from "../../Common/Components/Types/Types";
+import { Button, Form } from "react-bootstrap";
+
 
 
 
@@ -40,12 +42,16 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
                 setEditMode(false);
             })
     }
-
+{/* <Button><input className={style.InputBtn} type="file" onChange={onMainPhotoSelected} /> </Button> */}
     
     return (
         <div className={style.descriptionBlock}>
-            <img alt="userPhoto" src={props.profile.photos.large || userPhotoDefault} />
-            <div >{props.isOwner && <input className={style.InputBtn} type="file" onChange={onMainPhotoSelected} />}</div>
+            <img alt="userPhoto" src={props.profile.photos.large || userPhotoDefault} /> 
+            <div >{props.isOwner &&      
+      
+        <Form.Control onChange={onMainPhotoSelected} type="file" />
+    
+           }</div>
             <div>
                 <ProfileStatusWidthHook
                     status={props.status}

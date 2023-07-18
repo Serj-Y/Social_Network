@@ -1,25 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect, Route, withRouter, BrowserRouter, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import { initializeApp } from "./Common/Components/Redux/AppReducer";
 import Preloader from "./Common/Components/Preloader/Preloader";
-import {Login} from "./Login/Login";
+import { Login } from "./Login/Login";
 import Music from "./Music/Music";
 import Nav from "./Nav/Nav";
 import News from "./News/News";
 import Settings from "./Settings/Settings";
 import { widthSuspense } from "./Common/Components/hoc/withSuspense";
-import store, { AppStateType } from "./Common/Components/Redux/reduxStore";
-import { Provider } from "react-redux";
+import { AppStateType } from "./Common/Components/Redux/reduxStore";
 import { UsersPage } from "./Users/UsersContainer";
 import { Header } from "./Header/Header";
-
-
-
-
-
 
 
 const ProfileContainer = React.lazy(() => import("./Profile/ProfileContainer"))
@@ -80,17 +74,20 @@ const mapStateToProps = (state: AppStateType) => ({
 
 })
 
-let AppContainer = compose<React.ComponentType>(
-  withRouter,
-  connect(mapStateToProps, { initializeApp }))(App);
+// let AppContainer = compose<React.ComponentType>(
+//   withRouter,
+//   connect(mapStateToProps, { initializeApp }))(App);
 
-const MyApp: React.FC = () => {
-  return <BrowserRouter>
-    <Provider store={store}>
-      <AppContainer />
-    </Provider>
-  </BrowserRouter>
-}
+// const MyApp: React.FC = () => {
+//   return <BrowserRouter>
+//     <Provider store={store}>
+//       <AppContainer />
+//     </Provider>
+//   </BrowserRouter>
+// }
 
-export default MyApp;
+// export default MyApp;
+
+export default compose(connect(mapStateToProps, { initializeApp }))(App);
+
 

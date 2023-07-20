@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect} from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
@@ -7,13 +7,22 @@ import { initializeApp } from "./Common/Components/Redux/AppReducer";
 import Preloader from "./Common/Components/Preloader/Preloader";
 import { Login } from "./Login/Login";
 import Music from "./Music/Music";
-import Nav from "./Nav/Nav";
 import News from "./News/News";
 import Settings from "./Settings/Settings";
 import { widthSuspense } from "./Common/Components/hoc/withSuspense";
 import { AppStateType } from "./Common/Components/Redux/reduxStore";
 import { UsersPage } from "./Users/UsersContainer";
+import Box from '@mui/material/Box';
+import DrawerAppBar from "./Drawer/Drawer";
+
+
 import { Header } from "./Header/Header";
+import Nav from "./Nav/Nav";
+
+
+
+
+
 
 
 const ProfileContainer = React.lazy(() => import("./Profile/ProfileContainer"))
@@ -24,6 +33,7 @@ const DialogsContainer = React.lazy(() => import("./Dialogs/DialogsContainer"))
 type MapPropsType = ReturnType<typeof mapStateToProps>
 type DispatchPropsType = {
   initializeApp: () => void
+
 }
 
 const SuspendedDialogs = widthSuspense(DialogsContainer)
@@ -47,12 +57,11 @@ class App extends Component<MapPropsType & DispatchPropsType> {
     if (!this.props.initialized) {
       return <Preloader />
     }
-
-    return (
-      <div className="app-wrapper" >
-        <Header />
-        <Nav />
-        <div className="app-wrapper-content">
+  return (
+    <div>
+      <Box sx={{ display: 'flex' }}>
+        <DrawerAppBar />
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Switch>
             <Route exact path="/" render={() => <Redirect to={"/profile"} />} />
             <Route path="/profile/:userId?" render={() => <SuspendedProfile />} />
@@ -63,11 +72,13 @@ class App extends Component<MapPropsType & DispatchPropsType> {
             <Route path="/music" render={() => <Music />} />
             <Route path="/settings" render={() => <Settings />} />
           </Switch>
-        </div>
-      </div>
-    )
-  };
+        </Box>
+      </Box>
+    </div>
+  )
+};
 }
+
 
 const mapStateToProps = (state: AppStateType) => ({
   initialized: state.app.initialized,

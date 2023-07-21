@@ -1,27 +1,27 @@
-import React, { FC, useState } from "react";
-import s from './Post.module.css'
+import React, { useState } from "react";
+import styles from "./Post.module.scss"
+import { Btn } from "../../../Common/Components/styles/button/Button";
 
-type PropsType ={
+type PropsType = {
     message: string
     likesCount: number
 
 }
 
 
-
-const Post: React.FC<PropsType>  = (props) => {
+const Post: React.FC<PropsType> = (props) => {
 
     const [count, setCount] = useState(props.likesCount);
 
     return (
-        <div className={s.item}>
+        <div className={styles.item}>
             <img
                 src='https://static.thenounproject.com/png/4314581-200.png' alt="" />
             <div>
-                <span>{props.message}</span>
+                <h4>{props.message}</h4>
             </div>
             <div>
-                <span><a onClick={() => setCount(count + 1)}>Like{count}</a> </span>
+                <Btn Href={() => setCount(count + 1)} ButtonText={`Like ${count}`} />
             </div>
         </div>
     )

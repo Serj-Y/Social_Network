@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./../Dialogs.module.css";
+import styles from "./../Dialogs.module.scss";
 
 
 type PropsType = {
@@ -8,7 +8,7 @@ id: string
 }
 
 const Message: React.FC<PropsType> = (props) => {
-    return <div className={s.messages}>
+    return <div className={styles.messages}>
     {props.message}
     </div>
 }

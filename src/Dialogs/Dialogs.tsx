@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Dialogs.module.css";
+import styles from "./Dialogs.module.scss";
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import { reduxForm } from "redux-form";
@@ -39,11 +39,11 @@ const Dialogs: React.FC<PropsType> = (props) => {
   };
 
   return (
-    <div className={style.dialogs}>
-      <div className={style.dialogsItem}>
+    <div className={styles.dialogs}>
+      <div className={styles.dialogsItem}>
         {dialogsElements}
       </div>
-      <div className={style.messages}>
+      <div className={styles.messages}>
         <div>{messagesElements}</div>
       </div>
       <AddMessageFormRedux onSubmit={addNewMessage} />

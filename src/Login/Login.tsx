@@ -5,7 +5,7 @@ import { required } from "../Common/Components/Validators/Validators";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Common/Components/Redux/authReducer";
 import { Redirect } from "react-router-dom";
-import style from "../Common/Components/FormsControls/FormsControls.module.css"
+import stylesForm from "../Common/Components/FormsControls/FormsControls.module.css"
 import { CreateFields } from "../Common/Components/FormsControls/FormsControls";
 import { AppStateType } from "../Common/Components/Redux/reduxStore";
 
@@ -27,7 +27,7 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
                 {captchaUrl && <img alt="captchaUrl" src={captchaUrl} />}
                 {captchaUrl && CreateFields<LoginFormValueTypeKeys>("Symbols from", "captcha", [required], Input, {})}
 
-                <div className={style.formSummaryError}>
+                <div className={stylesForm.formSummaryError}>
                     {error}
                 </div>
                 <div>

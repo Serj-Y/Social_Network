@@ -1,9 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./Common/Components/styles/sass/Mixins.scss";
+@import "./Common/Components/styles/sass/Variables.scss";
+
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
 
 body {
-  margin: 10px;
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,8 +14,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 
-  background-color: #0b1629;
-color: #fefefe;
+  background-color: $bgColor;
+  color: $textColor;
 
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { compose } from "redux";
-import "./App.css";
+import "./App.scss";
 import { initializeApp } from "./Common/Components/Redux/AppReducer";
 import Preloader from "./Common/Components/Preloader/Preloader";
 import { Login } from "./Login/Login";

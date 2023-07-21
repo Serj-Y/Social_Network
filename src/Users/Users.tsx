@@ -27,7 +27,24 @@ export const Users: React.FC<PropsType> = (props) => {
   const dispatch = useDispatch()
   const history = useHistory()
 
-  
+
+  const onPageChanged = (pageNumber: number) => {
+
+    dispatch(requestUsers(pageNumber, pageSize, filter))
+  }
+
+  const onFilterChanged = (filter: FilterType) => {
+    dispatch(requestUsers(currentPage, pageSize, filter))
+  }
+
+  const Follow = (userId: number) => {
+    dispatch(follow(userId))
+  }
+
+  const UnFollow = (userId: number) => {
+    dispatch(unFollow(userId))
+  }
+
 
   useEffect(() => {
     const parsed = queryString.parse(history.location.search.substring(1))
@@ -53,6 +70,7 @@ export const Users: React.FC<PropsType> = (props) => {
     dispatch(requestUsers(ActualPage, pageSize, ActualFilter))
   }, [])
 
+  
 
   useEffect(() => {
 
@@ -69,22 +87,7 @@ export const Users: React.FC<PropsType> = (props) => {
 
   }, [filter, currentPage])
 
-  const onPageChanged = (pageNumber: number) => {
 
-    dispatch(requestUsers(pageNumber, pageSize, filter))
-  }
-
-  const onFilterChanged = (filter: FilterType) => {
-    dispatch(requestUsers(currentPage, pageSize, filter))
-  }
-
-  const Follow = (userId: number) => {
-    dispatch(follow(userId))
-  }
-
-  const UnFollow = (userId: number) => {
-    dispatch(unFollow(userId))
-  }
 
   return <div>
     <Paginator

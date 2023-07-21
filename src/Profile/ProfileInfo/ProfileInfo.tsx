@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import style from "./ProfileInfo.module.css"
+import styles from "./ProfileInfo.module.scss"
 import Preloader from "../../Common/Components/Preloader/Preloader";
 import ProfileStatusWidthHook from "./ProfileData/ProfileStatusWithHook";
 import userPhotoDefault from "../../Common/assets/img/4314581-200.png"
@@ -43,9 +43,9 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
 
     
     return (
-        <div className={style.descriptionBlock}>
+        <div className={styles.descriptionBlock}>
             <img alt="userPhoto" src={props.profile.photos.large || userPhotoDefault} />
-            <div >{props.isOwner && <input className={style.InputBtn} type="file" onChange={onMainPhotoSelected} />}</div>
+            <div >{props.isOwner && <input className={styles.InputBtn} type="file" onChange={onMainPhotoSelected} />}</div>
             <div>
                 <ProfileStatusWidthHook
                     status={props.status}

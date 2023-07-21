@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./MyPosts.module.css";
+import styles from "./MyPosts.module.scss";
 import Post from "./Posts/Post";
 import { PostsType } from "../../Common/Components/Types/Types";
 import { AddPostFormValueType, AddPostFormRedux } from "./AddPostFormValueType";
@@ -26,10 +26,10 @@ const MyPosts: React.FC<MapPropsType & DispatchPropsType> = (props) => {
         return props.addPost(values.newPostText);
     }
     return (
-        <div className={s.postsBlock}>
+        <div className={styles.postsBlock}>
             <h2>Posts</h2>
             <AddPostFormRedux onSubmit={onAddPost} />
-            <div className={s.posts}>
+            <div className={styles.posts}>
                 {postsElements}
             </div>
         </div>

@@ -1,6 +1,5 @@
 import React from "react";
-import s from "./Header.module.css";
-import { NavLink, useHistory } from "react-router-dom";
+import styles from "./Header.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { AppStateType } from "../Common/Components/Redux/reduxStore";
 import { logout } from "../Common/Components/Redux/authReducer";
@@ -19,12 +18,14 @@ export const Header = () => {
     }
 
     return (
-        <header className={s.header}>
-            Social_Network / {login} 
-            <div className={s.loginBlock} >
+        <header className={styles.header}>
+            <div className={styles.title} >
+                <h1>Social_Network / {login} </h1>
+            </div>
+            <div className={styles.loginBlock} >
                 {isAuth
-                    ? <Btn Href={LogOut} ButtonText="Logout" />
-                    : <NavBtn Href="/login" ButtonText="Login" />
+                    ? <Btn PropBtnStyle={styles.propBtn} Href={LogOut} ButtonText="Logout" />
+                    : <NavBtn PropBtnStyle={styles.propBtn} Href="/login" ButtonText="Login" />
                 }
             </div>
         </header>

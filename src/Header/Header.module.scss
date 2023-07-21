@@ -1,0 +1,26 @@
+@import "../Common/Components/styles/sass/Variables.scss";
+@import "../Common/Components/styles/sass/Mixins.scss";
+
+
+.header {
+  grid-area: h;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+
+  .title {
+
+    margin-left: 5px;
+  }
+
+  .loginBlock {
+    margin-right: 10px;
+
+    .propBtn {
+      width: fit-content;
+    }
+  }
+
+}

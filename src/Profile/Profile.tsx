@@ -2,7 +2,7 @@ import React from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import { ProfileType } from "../Common/Components/Types/Types";
-import styles from "./Profile.module.css";
+import styles from "./Profile.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { AppStateType } from "../Common/Components/Redux/reduxStore";
 import { savePhoto, updateStatus } from "../Common/Components/Redux/profileReducer";

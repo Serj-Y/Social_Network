@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Dialogs.module.css";
+import styles from "./Dialogs.module.scss";
 import { InjectedFormProps } from "redux-form";
 import { required } from "../Common/Components/Validators/Validators";
 import { Textarea } from "../Common/Components/FormsControls/FormsControls";
@@ -12,7 +12,7 @@ export const AddMessageForm: React.FC<InjectedFormProps<NewMessagesType>> = (pro
       <div>
         {CreateFields<NewMessagesValuesKeysType>("Enter your message", "newMessageBody", [required, maxLength, minLength], Textarea)}
       </div>
-      <div className={style.button}>
+      <div className={styles.button}>
         <button>Send Message</button>
       </div>
     </form>

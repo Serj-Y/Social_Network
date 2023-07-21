@@ -6,7 +6,7 @@ width: auto;
     "h h"
     "n c";
 
-  grid-template-rows: 90px 1fr;
+  grid-template-rows: 90px 3fr;
   grid-template-columns: 128px 2fr;
  
 }

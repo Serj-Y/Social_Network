@@ -1,25 +1,17 @@
 .nav {
   grid-area: n;
-padding-top: 100px;
-  text-align: center;
+  display: flex;
   position: fixed;
   width: 120px;
-}
-
-.item  {
-  text-decoration: none;
-
+  height: 100vh;
+  justify-content: space-around;
 
 }
 
-a.active {
-  text-align: left;
-  text-shadow: 3px;
-  text-decoration: solid;
-  text-decoration-line: underline;
-  text-decoration-color:dodgerblue;
-}
-
-.link{
-  padding: 5px; 
+.item {
+  padding-top: 85px;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

@@ -1,3 +1,21 @@
-.item img {
-    max-width: 70px;
+.item {
+
+    display: flex;
+    align-items: center;
+
+
+    .postPhoto {}
+
+    .postMessage {
+        margin: 20px;
+
+        .likeBtn {
+       
+        }
+
+    }
+    
+
+
+
 }

@@ -1,8 +1,8 @@
 import React from "react"
-import style from "../ProfileInfo.module.scss"
+import styles from "../ProfileInfo.module.scss"
 import { CreateFields, GetStringKeys, Input, Textarea } from "../../../Common/Components/FormsControls/FormsControls"
 import { InjectedFormProps, reduxForm } from "redux-form";
-import s from "../../../Common/Components/FormsControls/FormsControls.module.css"
+import styleForm from "../../../Common/Components/FormsControls/FormsControls.module.scss"
 import { ProfileType } from "../../../Common/Components/Types/Types";
 
 type PropsType = {
@@ -17,7 +17,7 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & Prop
         <form onSubmit={handleSubmit} >
             <div>
                 <button >Save Changes</button>
-                {error && <div className={s.formSummaryError} >
+                {error && <div className={styleForm.formSummaryError} >
                     {error}</div>}
             </div>
             <div>
@@ -36,7 +36,7 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & Prop
             </div>
             <div>
                 <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
-                    return <div key={key} className={style.contacts}>
+                    return <div key={key} className={styles.contacts}>
                         <b>{key}: {CreateFields(key, "contacts." + key, [], Input)}</b>
                     </div>
                 })}

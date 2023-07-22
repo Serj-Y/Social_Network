@@ -1,0 +1,28 @@
+
+.addPostForm {
+display: flex;
+align-items: center;
+
+.form{
+    display: flex;
+    max-height: 100px;
+    color: #dfe3ee;
+
+    textarea{
+  max-width: 340px;
+  width: 340px;
+  max-height: 100px;
+  background:none;
+  border: none;
+  border-radius: 0;
+  color: #dfe3ee;
+     height: 30px;
+    }
+    .submitBtn{
+margin-left: 20px;
+    }
+}
+}
+
+
+

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MyPosts.module.scss";
 import Post from "./Posts/Post";
 import { PostsType } from "../../Common/Components/Types/Types";
-import { AddPostFormValueType, AddPostFormRedux } from "./AddPostFormValueType";
+import { AddPostFormValueType, AddPostFormRedux } from "./AddPostForm";
 
 
 export type MapPropsType = {
@@ -27,7 +27,6 @@ const MyPosts: React.FC<MapPropsType & DispatchPropsType> = (props) => {
     }
     return (
         <div className={styles.postsBlock}>
-            <h2>Posts</h2>
             <AddPostFormRedux onSubmit={onAddPost} />
             <div className={styles.posts}>
                 {postsElements}

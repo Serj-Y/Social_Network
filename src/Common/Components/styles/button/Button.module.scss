@@ -17,12 +17,13 @@
     width: 100%;
     letter-spacing: 1px;
     position: relative;
+    background: none;
     z-index: 0;
 
     &::after {
         content: "";
         position: absolute;
-        width: 50%;
+        // width: 50%;
         height: 3px;
         background: $primaryColor;
         bottom: 0;

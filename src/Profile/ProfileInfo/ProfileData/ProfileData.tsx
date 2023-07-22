@@ -1,6 +1,7 @@
 import React from "react";
-import style from "../ProfileInfo.module.scss"
+import styles from "../ProfileInfo.module.scss"
 import { ContactsObjectType, ProfileType } from "../../../Common/Components/Types/Types";
+import { Btn } from "../../../Common/Components/styles/button/Button";
 
 
 type PropsType = {
@@ -11,8 +12,7 @@ type PropsType = {
 
 const ProfileData: React.FC<PropsType> = ({ profile, isOwner, goToEditMode }) => {
     return (
-        <div>
-        {isOwner &&  <div><button onClick={goToEditMode} >edit</button></div>}
+        <div className={styles.profileData} >
             <div>
                 <b> Full Name</b>: {profile.fullName}
             </div>
@@ -36,6 +36,7 @@ const ProfileData: React.FC<PropsType> = ({ profile, isOwner, goToEditMode }) =>
                         contactTitle={key}
                         contactValue={profile.contacts[key as keyof ContactsObjectType]} />})}
             </div>
+            {isOwner &&  <div><Btn Href={goToEditMode} ButtonText={"edit"} /></div>}
         </div>
     )
 }
@@ -47,7 +48,7 @@ type ContactsPropsType = {
 
 const Contact: React.FC<ContactsPropsType> = ({ contactTitle, contactValue }) => {
     return (
-        <div className={style.contacts}><b>{contactTitle}</b>: {contactValue} </div>
+        <div className={styles.contacts}><b>{contactTitle}</b>: {contactValue} </div>
     )
 }
 

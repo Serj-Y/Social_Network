@@ -5,6 +5,12 @@ width: 100%;
 
 
     .posts {
+margin: 20px;
+@media screen and (max-width: 500px) {
 
+    display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+}
 }
 }

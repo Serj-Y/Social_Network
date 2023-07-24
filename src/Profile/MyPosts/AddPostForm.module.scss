@@ -4,6 +4,7 @@ display: flex;
 align-items: center;
 
 .form{
+    margin: 20px;
     display: flex;
     max-height: 100px;
     color: #dfe3ee;
@@ -17,6 +18,10 @@ align-items: center;
   border-radius: 0;
   color: #dfe3ee;
      height: 30px;
+     @media screen and (max-width: 500px) {
+        max-width: none;
+        width: auto;
+     }
     }
     .submitBtn{
 margin-left: 20px;

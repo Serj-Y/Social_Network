@@ -19,9 +19,13 @@ export const Header = () => {
 
     return (
         <header className={styles.header}>
-            <div className={styles.title} >
-                <h1>Social_Network / {login} </h1>
+            <div className={styles.burger}>
+BBB
             </div>
+            <div className={styles.title} >
+                <div>Social_Network/{login} </div>
+            </div>
+            
             <div className={styles.loginBlock} >
                 {isAuth
                     ? <Btn PropBtnStyle={styles.propBtn} Href={LogOut} ButtonText="Logout" />

@@ -5,10 +5,9 @@
   width: 120px;
   height: 100vh;
   justify-content: space-around;
-  @media screen and (max-width: 500px){
-    display: none;
-    position: relative;
-  }
+@media screen and (max-width: 600px) {
+display: none;  
+}
 
   .item {
     padding-top: 85px;

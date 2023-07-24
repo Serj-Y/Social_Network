@@ -8,6 +8,11 @@ width: auto;
 
   grid-template-rows: 90px 3fr;
   grid-template-columns: 128px 2fr;
+  @media screen and (max-width: 600px) { 
+    grid-template-areas:
+    "h h"
+    "c c";
+  }
  
 }
 

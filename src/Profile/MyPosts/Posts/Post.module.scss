@@ -1,20 +1,23 @@
+@import "../../../Common/Components/styles/sass/Variables.scss";
+
+
 .item {
 
     display: flex;
     align-items: center;
-
 
     .postPhoto {}
 
     .postMessage {
         margin: 20px;
 
-        .likeBtn {
-       
+        .likeActive {
+            background: $primaryColor;
+            color: $bgColor
         }
 
+
     }
-    
 
 
 

@@ -13,8 +13,25 @@ type PropsType = {
 
 const Post: React.FC<PropsType> = (props) => {
 
-    const [count, setCount] = useState(props.likesCount);
     const profilePhoto = useSelector((state: AppStateType) => state.profilePage.profile?.photos.small)
+    const [count, setCount] = useState(props.likesCount);
+    const [like, setLike] = useState(false)
+const [style, setStyle] =useState("")
+
+
+
+    const LikerDisLiker = () => {
+        if (!like) {
+            setCount(count + 1)
+            setLike(true)
+            setStyle(styles.likeActive)
+        } else {
+            setCount(count - 1)
+            setLike(false)
+            setStyle("")
+        }
+    }
+
 
     return (
         <div className={styles.item}>
@@ -23,8 +40,8 @@ const Post: React.FC<PropsType> = (props) => {
             </div>
             <div className={styles.postMessage}>
                 <h4>{props.message}</h4>
-                <div className={styles.likeBtn} >
-                    <Btn Href={() => setCount(count + 1)} ButtonText={`Like ${count}`} />
+                <div >
+                    <Btn Click={() => LikerDisLiker()} PropBtnStyle={style} ButtonText={`Like ${count}`} />
                 </div>
             </div>
         </div>

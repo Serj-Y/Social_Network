@@ -1,0 +1,20 @@
+@import "../styles/sass/Variables.scss";
+
+
+.paginator{
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @media screen and (max-width: 350px) {
+    flex-wrap: wrap;
+    
+  }
+}
+
+
+.selectedPage {
+  background: $primaryColor;
+color: $bgColor
+  
+  }
+

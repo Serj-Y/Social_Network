@@ -1,7 +1,10 @@
 {
     "cSpell.words": [
+        "fontawesome",
         "formik",
-        "UNFOLLOW"
+        "fortawesome",
+        "UNFOLLOW",
+        "Xmark"
     ],
     "vscodeReactRefactor.functionType": "arrowFunction",
 }

@@ -1,4 +1,4 @@
-
+@import "../../Common/Components/styles/sass/Variables.scss";
 .addPostForm {
 display: flex;
 align-items: center;
@@ -14,9 +14,9 @@ align-items: center;
   width: 340px;
   max-height: 100px;
   background:none;
-  border: none;
-  border-radius: 0;
-  color: #dfe3ee;
+  border: solid;
+  border-color: $primaryColor;
+  color: $textColor;
      height: 30px;
      @media screen and (max-width: 500px) {
         max-width: none;
@@ -25,6 +25,7 @@ align-items: center;
     }
     .submitBtn{
 margin-left: 20px;
+padding-top: 5px;
     }
 }
 }

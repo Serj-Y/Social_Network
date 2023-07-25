@@ -46,34 +46,32 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
         <div className={styles.descriptionBlock}>
 
             <div className={styles.profilePhoto} >
-                
+
                 <img alt="userPhoto" src={props.profile.photos.large || userPhotoDefault} />
                 {props.isOwner && <input className={styles.InputBtn} type="file" onChange={onMainPhotoSelected} />}
-                <div>
-               
-            </div>
+
             </div>
 
-                
+
             {editMode
                 ? <ProfileDataReduxForm
                     initialValues={props.profile}
                     onSubmit={onSubmit}
                     profile={props.profile}
                 />
-                : 
+                :
                 <div>
-                    
-                      <ProfileData
-                    profile={props.profile}
-                    isOwner={props.isOwner}
-                    goToEditMode={() => { setEditMode(true) }}
-                />
-
+                        <ProfileStatusWidthHook
+                            status={props.status}
+                            updateStatus={props.updateStatus} />
+                   
+                    <ProfileData
+                        profile={props.profile}
+                        isOwner={props.isOwner}
+                        goToEditMode={() => { setEditMode(true) }}
+                    />
                 </div>
-              
             }
-       
         </div>
     )
 }

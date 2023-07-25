@@ -1,0 +1,37 @@
+@import "../../Common/Components/styles/sass/Variables.scss";
+
+.form {
+    input {
+        margin: 5px;
+        max-width: 340px;
+        background: none;
+        border: solid;
+        border-color: $primaryColor;
+        border-radius: 3px;
+        color: $textColor;
+        height: 30px;
+    }
+
+    select {
+        
+        max-width: 340px;
+        background: none;
+        border: solid;
+        border-color: $primaryColor;
+        border-radius: 3px;
+        color: $textColor;
+        height: 35px;
+    }
+    button{
+        font-family: $fontFamily;
+        color: $primaryColor;
+        font-size:medium;
+        padding: 8px 10px;
+        border-radius: 2px;
+        border-style: hidden;
+        border-color: $primaryColor;
+        max-width: 100px;
+        position: relative;
+        background: none;
+    }
+}

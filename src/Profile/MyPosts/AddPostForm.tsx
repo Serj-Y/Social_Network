@@ -24,7 +24,7 @@ let AddPostForm: React.FC<InjectedFormProps<AddPostFormValueType, AddPostPropsTy
              <form className={styles.form} onSubmit={props.handleSubmit}>
             {CreateFields<AddPostFormValueTypeKey>("Enter your post-message", "newPostText", [required, maxLength, minLength], Textarea)}
            <div className={styles.submitBtn}>
-              <Btn ButtonText={"Post"} Href={undefined}/>
+              <Btn ButtonText={"Post"}/>
            </div>
           
         </form> 

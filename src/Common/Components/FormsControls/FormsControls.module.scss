@@ -1,4 +1,4 @@
-
+@import "../styles/sass/Variables.scss";
 .formControl.error input, 
 .formControl.error textarea{
     border: solid red 2px;
@@ -20,46 +20,13 @@ color: red;
     user-select: none;
   }
   
-/*   
- textarea, input {
-    border-radius: 8px;
-    padding: 7px 16px;
-    box-shadow: rgba(77, 79, 82, 0.2) 0px 8px 24px;
-    border: 2px solid rgb(184, 180, 180);
-    font-size: 0.8rem;
-    outline: none;
-    transition: 0.5s ease;
-  }
+input ,textarea{
+  margin: 5px;
+  max-width: 340px;
+  background: none;
+  border: solid;
+  border-color: $primaryColor;
+  color: $textColor;
+
   
-  textarea, input:hover {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    border-color: rgb(138, 175, 255);
-  }
-  
- textarea, input:focus {
-    border: 2px solid rgb(57, 120, 255);
-    box-shadow: rgba(133, 130, 130, 0.1) 0px 4px 12px;
-    transform: scale(0.99);
-  }
-  
- 
-  
-  button  {
-    font-size: auto;
-    padding: 0.5em 2em;
-    border: transparent;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-    background: dodgerblue;
-    color: white;
-    border-radius: 4px;
-   }
-   
-   button:hover {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(0,212,255,1) 100%);
-   }
-   
-   button:active {
-    transform: translate(0em, 0.2em);
-   } */
-  
+}

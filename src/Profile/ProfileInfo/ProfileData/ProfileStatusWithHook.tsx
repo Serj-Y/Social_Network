@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState, ChangeEvent } from "react";
+import styles from "../ProfileInfo.module.scss"
 
 type PropsType = {
     status: string
@@ -31,7 +32,7 @@ const ProfileStatusWidthHook: React.FC<PropsType> = React.memo(props => {
     return (
         <div>
             {!editMode &&
-                <div> 
+                <div className={styles.status} > 
                    <b>Status</b>:
                     <span 
                     onClick={activateEditMode}> 

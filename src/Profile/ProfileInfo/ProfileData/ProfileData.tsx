@@ -13,17 +13,17 @@ type PropsType = {
 const ProfileData: React.FC<PropsType> = ({ profile, isOwner, goToEditMode }) => {
     return (
         <div className={styles.profileData} >
-            <div>
+            <div className={styles.itemProfileData} >
                 <b> Full Name</b>: {profile.fullName}
             </div>
-            <div>
+            <div  className={styles.itemProfileData}>
                 <b>About Me</b>:   {profile.aboutMe}
             </div>
-            <div>
+            <div  className={styles.itemProfileData}>
                 <b> Looking for a Job</b>: {profile.lookingForAJob ? "Yes" : "No"}
             </div>
             {profile.lookingForAJob &&
-            <div>
+            <div  className={styles.itemProfileData}>
                 <b>Looking a Job</b>: {profile.lookingForAJobDescription}
             </div>
 }
@@ -36,7 +36,7 @@ const ProfileData: React.FC<PropsType> = ({ profile, isOwner, goToEditMode }) =>
                         contactTitle={key}
                         contactValue={profile.contacts[key as keyof ContactsObjectType]} />})}
             </div>
-            {isOwner &&  <div><Btn Href={goToEditMode} ButtonText={"edit"} /></div>}
+            {isOwner &&  <div><Btn Click={goToEditMode} ButtonText={"edit"} /></div>}
         </div>
     )
 }

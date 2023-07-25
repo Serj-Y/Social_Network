@@ -3,6 +3,9 @@ import { Field, Formik, Form } from "formik";
 import { FilterType } from "../../Common/Components/Redux/usersReducer";
 import { useSelector } from "react-redux";
 import { getUserFilter } from "../../Common/Components/Redux/userSelectors";
+import styles from "./UserSearchForm.module.scss"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 
 const UserSearchFormValue = (values: any) => {
@@ -42,15 +45,14 @@ export const UserSearchForm: React.FC<PropsType> = (props) => {
         onSubmit={submit}
       >
         {({ isSubmitting }) => (
-          <Form>
-            <Field type="text" name="term" />
-
+          <Form className={styles.form} >
+            <Field  type="text" name="term"  placeholder="Search"/>
             <Field name="friend" as="select">
-              <option value="null" > All</option>
+              <option  value="null" > All</option>
               <option value="true" > Friends</option>
               <option value="false" > !Friends</option>
             </Field>
-            <button type="submit" disabled={isSubmitting}>search</button>
+            <button type="submit" disabled={isSubmitting}><FontAwesomeIcon icon={faSearch}/></button>
           </Form>
         )}
       </Formik>

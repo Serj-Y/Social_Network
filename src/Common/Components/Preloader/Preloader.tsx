@@ -1,5 +1,6 @@
 import React from "react";
-import preLoader from "../../assets/img/Preloader.gif"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 type PropsType = {
 
@@ -7,7 +8,7 @@ type PropsType = {
 
 let Preloader: React.FC<PropsType> = (props) => {
     return <div>
-        <img src={preLoader} alt="preLoader" style={{ maxWidth: "55px" }} />
+        <FontAwesomeIcon icon={faSpinner} spinPulse size="xl" />
     </div>
 }
 

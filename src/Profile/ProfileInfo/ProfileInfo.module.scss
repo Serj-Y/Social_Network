@@ -1,30 +1,46 @@
 .descriptionBlock {
-   display: flex;
-margin: 10px;
-align-items: center;
-@media screen and (max-width: 850px) {
-    flex-direction: column;
+    display: flex;
+    margin: 10px;
     align-items: center;
-}
 
+    @media screen and (max-width: 850px) {
+        flex-direction: column;
+        align-items: center;
+    }
 
-    .profilePhoto{
-display: flex;
-flex-direction: column;
-align-items: center;
-margin: 10px;
+    .editModeForm {
+        display: flex;
+        align-items: center;
+    }
+
+    .profilePhoto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
 
 
     }
-.profileData{
-   
-      .contacts{
-    padding-left: 20px;
+    .status{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .profileData {
+
+        .itemProfileData {
+            margin: 5px;
+
+
+        }
+
+        .contacts {
+            margin: 2px;
+            padding-left: 30px;
+
+        }
+    }
+
 
 }
-}
-
-  
-}
-
-

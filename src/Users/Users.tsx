@@ -107,11 +107,5 @@ export const Users: React.FC<PropsType> = (props) => {
         key={u.id}
         followingInProgress={followingInProgress} />
     )}
-
-    <Paginator
-      currentPage={currentPage}
-      onPageChanged={onPageChanged}
-      totalItemsCount={totalUsersCount}
-      pageSize={pageSize} />
   </div>
 }

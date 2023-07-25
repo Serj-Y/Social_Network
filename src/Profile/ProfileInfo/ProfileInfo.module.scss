@@ -11,6 +11,7 @@
     .editModeForm {
         display: flex;
         align-items: center;
+
     }
 
     .profilePhoto {
@@ -21,18 +22,18 @@
 
 
     }
-    .status{
+
+    .status {
         display: flex;
         align-items: center;
         margin-bottom: 20px;
     }
 
     .profileData {
+        
 
         .itemProfileData {
             margin: 5px;
-
-
         }
 
         .contacts {

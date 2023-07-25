@@ -1,3 +1,10 @@
+@import "../Common/Components/styles/sass/Variables.scss";
+
 .Music {
     text-align: center;
+    .input{
+        display: none;
+    }
+
+
 }

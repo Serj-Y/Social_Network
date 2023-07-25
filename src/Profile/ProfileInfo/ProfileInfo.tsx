@@ -7,6 +7,7 @@ import { useState } from "react";
 import ProfileDataReduxForm from "./ProfileData/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
 import { ProfileType } from "../../Common/Components/Types/Types";
+import { InputBtn } from "../../Common/Components/styles/button/InputBtn/InputBtn";
 
 
 
@@ -48,7 +49,7 @@ const ProfileInfo: React.FC<PropsType> = (props) => {
             <div className={styles.profilePhoto} >
 
                 <img alt="userPhoto" src={props.profile.photos.large || userPhotoDefault} />
-                {props.isOwner && <input className={styles.InputBtn} type="file" onChange={onMainPhotoSelected} />}
+                {props.isOwner &&     <InputBtn OnChange={onMainPhotoSelected}/>}
 
             </div>
 

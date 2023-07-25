@@ -38,7 +38,7 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, PropsType> & Prop
                 })}
             </div>
             <div>
-                <Btn ButtonText={"Save Changes"} />
+                <Btn ButtonText={"Save"} />
                 {error && <div className={styleForm.formSummaryError} >
                     {error}</div>}
             </div>

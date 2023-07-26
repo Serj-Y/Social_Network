@@ -31,6 +31,7 @@ export const Header = () => {
                         <NavBtn Href="/profile" OnClick={() => setBurgerBtn(false)} ButtonText="Profile" />
                         <NavBtn Href="/messages" OnClick={() => setBurgerBtn(false)} ButtonText="Message" />
                         <NavBtn Href="/users" OnClick={() => setBurgerBtn(false)} ButtonText="Users" />
+                        <NavBtn Href="/chat" OnClick={() => setBurgerBtn(false)} ButtonText="Chat" />
                         <NavBtn Href="/music" OnClick={() => setBurgerBtn(false)} ButtonText="Music" />
                         <NavBtn Href="/news" OnClick={() => setBurgerBtn(false)} ButtonText="News" />
                         <NavBtn Href="/settings" OnClick={() => setBurgerBtn(false)} ButtonText="Settings" />

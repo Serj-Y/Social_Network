@@ -16,9 +16,10 @@ import { UsersPage } from "./Users/UsersContainer";
 import { Header } from "./Header/Header";
 
 
+
 const ProfileContainer = React.lazy(() => import("./Profile/ProfileContainer"))
 const DialogsContainer = React.lazy(() => import("./Dialogs/DialogsContainer"))
-
+const Chat = React.lazy(() => import("./Chat/ChatPage"))
 
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
@@ -28,6 +29,7 @@ type DispatchPropsType = {
 
 const SuspendedDialogs = widthSuspense(DialogsContainer)
 const SuspendedProfile = widthSuspense(ProfileContainer)
+const SuspendedChat = widthSuspense(Chat)
 
 
 class App extends Component<MapPropsType & DispatchPropsType> {
@@ -47,7 +49,6 @@ class App extends Component<MapPropsType & DispatchPropsType> {
     if (!this.props.initialized) {
       return <Preloader />
     }
-
     return (
       <div className="app-wrapper" >
         <Header />
@@ -58,10 +59,11 @@ class App extends Component<MapPropsType & DispatchPropsType> {
             <Route path="/profile/:userId?" render={() => <SuspendedProfile />} />
             <Route path="/messages" render={() => <SuspendedDialogs />} />
             <Route path="/users" render={() => <UsersPage />} />
-            <Route path="/login" render={() => <Login />} />
+            <Route path="/chat" render={() => <SuspendedChat />} />
             <Route path="/news" render={() => <News />} />
             <Route path="/music" render={() => <Music />} />
             <Route path="/settings" render={() => <Settings />} />
+            <Route path="/login" render={() => <Login />} />
           </Switch>
         </div>
       </div>

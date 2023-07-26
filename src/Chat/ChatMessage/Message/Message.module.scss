@@ -1,0 +1,26 @@
+  @import "../../../Common/Components/styles/sass/Variables.scss";
+
+  .messageContainer {
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: $bgSecondColor;
+    margin: 5px;
+    border: 2px solid;
+
+    .userPhoto {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+
+        .userName {
+            margin-left: 10px;
+        }
+    }
+
+
+    .message {}
+
+}

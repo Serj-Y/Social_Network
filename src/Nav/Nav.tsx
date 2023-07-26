@@ -15,6 +15,7 @@ const Nav: React.FC<PropsType> = (props) => {
         <NavBtn Href="/profile" ButtonText="Profile" />
         <NavBtn Href="/messages" ButtonText="Message" />
         <NavBtn Href="/users" ButtonText="Users" />
+        <NavBtn Href="/chat" ButtonText="Chat" />
         <NavBtn Href="/music" ButtonText="Music" />
         <NavBtn Href="/news" ButtonText="News" />
         <NavBtn Href="/settings" ButtonText="Settings" />

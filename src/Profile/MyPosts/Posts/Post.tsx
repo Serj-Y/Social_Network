@@ -4,11 +4,19 @@ import { Btn } from "../../../Common/Components/styles/button/Button";
 import { useSelector } from "react-redux";
 import { AppStateType } from "../../../Common/Components/Redux/reduxStore";
 import DefaultPhoto from "../../../Common/assets/img/4314581-200.png"
+import { SolidHeart } from "../../../Common/Components/styles/button/HeartBtn/HeartSolidBtn";
+import { RegularHeart } from "../../../Common/Components/styles/button/HeartBtn/HeartRegular";
+
+
+
 type PropsType = {
     message: string
     likesCount: number
-
 }
+
+
+
+
 
 
 const Post: React.FC<PropsType> = (props) => {
@@ -16,22 +24,28 @@ const Post: React.FC<PropsType> = (props) => {
     const profilePhoto = useSelector((state: AppStateType) => state.profilePage.profile?.photos.small)
     const [count, setCount] = useState(props.likesCount);
     const [like, setLike] = useState(false)
-const [style, setStyle] =useState("")
+
+    // const [style, setStyle] =useState("")
+
+    //     const LikerDisLiker = () => {
+    //         if (!like) {
+    //             setCount(count + 1)
+    //             setLike(true)
+    //             setStyle(styles.likeActive)
+    //         } else {
+    //             setCount(count - 1)
+    //             setLike(false)
+    //             setStyle("")
+    //         }
+    //     }
 
 
 
-    const LikerDisLiker = () => {
-        if (!like) {
-            setCount(count + 1)
-            setLike(true)
-            setStyle(styles.likeActive)
-        } else {
-            setCount(count - 1)
-            setLike(false)
-            setStyle("")
-        }
+
+    const onChangeLikeHandler = () => {
+        setCount(prevCount => prevCount + (like ? -1 : 1));
+        setLike(prevIsLike => !prevIsLike);
     }
-
 
     return (
         <div className={styles.item}>
@@ -41,12 +55,15 @@ const [style, setStyle] =useState("")
             <div className={styles.postMessage}>
                 <h4>{props.message}</h4>
                 <div >
-                    <Btn Click={() => LikerDisLiker()} PropBtnStyle={style} ButtonText={`Like ${count}`} />
+                    <button className={styles.likeButton} onClick={() => onChangeLikeHandler()} > {count} {like ? <SolidHeart/> : <RegularHeart/> }</button>
                 </div>
             </div>
         </div>
     )
 }
+
+
+
 
 const MemoPost = React.memo(Post)
 

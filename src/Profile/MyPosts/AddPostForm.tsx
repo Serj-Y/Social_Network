@@ -26,7 +26,6 @@ let AddPostForm: React.FC<InjectedFormProps<AddPostFormValueType, AddPostPropsTy
            <div className={styles.submitBtn}>
               <Btn ButtonText={"Post"}/>
            </div>
-          
         </form> 
         </div>
             

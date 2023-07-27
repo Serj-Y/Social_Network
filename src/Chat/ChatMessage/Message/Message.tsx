@@ -16,16 +16,14 @@ export const Message: React.FC<{ message: ChatMessageType }> = ({ message }) => 
 
     return (
         <div className={styles.messageContainer}>
-            <div className={styles.userPhoto} >
-                <img src={message.photo} alt="Avatar" />
-                  <div className={styles.userName} >
-                {message.userName}
+            <div className={styles.namePhotoContainer} >
+                <img className={styles.userPhoto} src={message.photo} alt="userPhoto" />
+                <div className={styles.userName} >
+                    {message.userName}
+                </div>
             </div>
-            </div>
-          
             <div className={styles.message} >
-                
-              Message:{message.message}
+                Message:{message.message}
             </div>
         </div>
     );

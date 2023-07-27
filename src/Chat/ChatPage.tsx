@@ -6,14 +6,10 @@ type PropsType = {
 
 }
 
-
-
-
- const ChatPage =() => {
-    return(
+const ChatPage = () => {
+    return (
         <div className={styles.chatPageContainer}>
-            <h1>Chat</h1>
-        <Chat/>    
+            <Chat />
         </div>
     )
 }

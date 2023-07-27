@@ -11,20 +11,18 @@ export type ChatMessageType = {
 }
 
 
-export const Message: React.FC<{ message: ChatMessageType }> = ({ message }) => {
-
-
+export const Message: React.FC<{ message: ChatMessageType }> = React.memo(({ message }) => {
     return (
         <div className={styles.messageContainer}>
             <div className={styles.namePhotoContainer} >
-                <img className={styles.userPhoto} src={message.photo} alt="userPhoto" />
+                <img className={styles.userPhoto} src={message.photo || DefaultPhoto} alt="userPhoto" />
                 <div className={styles.userName} >
                     {message.userName}
                 </div>
             </div>
             <div className={styles.message} >
-                Message:{message.message}
+                { message.message}
             </div>
         </div>
     );
-};
+});

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { AddMessageForm } from "./ChatMessage/AddMessageForm";
 import { Messages } from "./ChatMessage/Messages";
 import { useDispatch } from "react-redux";
@@ -7,6 +7,7 @@ import { startMessagesListening, stopMessagesListening } from "../Common/Compone
 
 export const Chat: React.FC = () => {
     const dispatch = useDispatch()
+
 
     useEffect(() => {
         dispatch(startMessagesListening())

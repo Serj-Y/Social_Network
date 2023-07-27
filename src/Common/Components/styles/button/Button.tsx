@@ -17,7 +17,7 @@ type PropsType = {
 
 
 export const NavBtn: React.FC<PropsType> = (props) => {
-    return <NavLink  className={`${styles.Btn} ${props.PropBtnStyle}`}  rel="noopener noreferrer"  to={props.Href} onClick={props.OnClick} > {props.ExtraComponent} {props.ButtonText}</NavLink>
+    return <NavLink activeStyle={{backgroundColor: "#8cc4df", color: "#0b1629"}} className={`${styles.Btn} ${props.PropBtnStyle}`}  rel="noopener noreferrer"  to={props.Href} onClick={props.OnClick} > {props.ExtraComponent} {props.ButtonText}</NavLink>
 }
 
 export const Btn: React.FC<PropsType> = (props) => {

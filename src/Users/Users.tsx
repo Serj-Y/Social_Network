@@ -71,7 +71,6 @@ export const Users: React.FC<PropsType> = (props) => {
   }, [])
 
   
-
   useEffect(() => {
 
     const query: QueryParamsType = {}
@@ -87,19 +86,15 @@ export const Users: React.FC<PropsType> = (props) => {
 
   }, [filter, currentPage])
 
-
-
   return <div>
     <Paginator
       currentPage={currentPage}
       onPageChanged={onPageChanged}
       totalItemsCount={totalUsersCount}
       pageSize={pageSize} />
-
     <UserSearchForm onFilterChanged={onFilterChanged} />
 
     {users.map(u =>
-
       <User
         unFollow={UnFollow}
         follow={Follow}

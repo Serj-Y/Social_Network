@@ -4,9 +4,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     background-color: $bgSecondColor;
     margin: 5px;
+
 
     .namePhotoContainer {
         display: flex;
@@ -22,7 +22,8 @@
         }
     }
 
-
-    .message {}
+    .message {
+  
+    }
 
 }

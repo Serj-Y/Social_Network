@@ -39,11 +39,11 @@ export function CreateFields<FormKeysType extends string>(placeholder: string | 
     component: React.FC<WrappedFieldProps>,
     props = {}, text = "") {
     return <div>
-        <Field  placeholder={placeholder} name={name}
+        <Field className={styles.Field} placeholder={placeholder} name={name}
             validate={validators}
             component={component}
             {...props}
-        /> {text}
+        /> <div style={{textAlign: "center", fontWeight: "600"}}>{text}</div>
     </div>
 }
 

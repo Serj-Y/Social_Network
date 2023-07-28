@@ -1,0 +1,27 @@
+
+
+.formContainer {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .descriptionForLogin {
+        text-align: center;
+
+        h4 {
+            margin-top: 5px;
+        }
+
+        h5 {
+            margin: 0;
+            text-align: start;
+        }
+    }
+
+    .propBtnStyle {
+        margin-left: 25%;
+    }
+
+}

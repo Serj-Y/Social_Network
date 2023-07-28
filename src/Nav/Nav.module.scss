@@ -5,16 +5,17 @@
   width: 120px;
   height: 100vh;
   justify-content: space-around;
+
 @media screen and (max-width: 600px) {
 display: none;  
 }
 
   .item {
-    padding-top: 105px;
+    padding-top: 110px;
     height: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    gap: 5px;
   }
 
 }

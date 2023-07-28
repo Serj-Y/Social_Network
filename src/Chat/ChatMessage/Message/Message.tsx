@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultPhoto from "../../../Common//assets/img/4314581-200.png"
+import DefaultPhoto from "../../../Common//assets/img/DefaultPhoto.png"
 import styles from "./Message.module.scss"
 
 export type ChatMessageType = {

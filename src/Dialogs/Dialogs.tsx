@@ -40,13 +40,16 @@ const Dialogs: React.FC<PropsType> = (props) => {
 
   return (
     <div className={styles.dialogs}>
-      <div className={styles.dialogsItem}>
+
+<h1 style={{textAlign: "center"}} >Coming Soon...</h1>
+
+      {/* <div className={styles.dialogsItem}>
         {dialogsElements}
       </div>
       <div className={styles.messages}>
         <div>{messagesElements}</div>
       </div>
-      <AddMessageFormRedux onSubmit={addNewMessage} />
+      <AddMessageFormRedux onSubmit={addNewMessage} /> */}
     </div>
   )
 }

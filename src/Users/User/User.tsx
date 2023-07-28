@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./User.module.scss"
-import userPhotoDefault from "../../Common/assets/img/4314581-200.png"
+import userPhotoDefault from "../../Common/assets/img/DefaultPhoto.png"
 import { NavLink } from "react-router-dom";
 import { UsersType } from "../../Common/Components/Types/Types";
 import { Btn } from "../../Common/Components/styles/button/Button";

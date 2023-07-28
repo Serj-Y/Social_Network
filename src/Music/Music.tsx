@@ -4,7 +4,7 @@ import styles from "./Music.module.scss"
 const Music = React.memo(props => {
     return (
         <div className={styles.Music}>
-            <h1>Music</h1>
+            <h1>Coming soon...</h1>
         </div>
     )
 })

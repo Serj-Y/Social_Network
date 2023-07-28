@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Post.module.scss"
-import { Btn } from "../../../Common/Components/styles/button/Button";
 import { useSelector } from "react-redux";
 import { AppStateType } from "../../../Common/Components/Redux/reduxStore";
-import DefaultPhoto from "../../../Common/assets/img/4314581-200.png"
+import DefaultPhoto from "../../../Common/assets/img/DefaultPhoto.png"
 import { SolidHeart } from "../../../Common/Components/styles/button/HeartBtn/HeartSolidBtn";
 import { RegularHeart } from "../../../Common/Components/styles/button/HeartBtn/HeartRegular";
 

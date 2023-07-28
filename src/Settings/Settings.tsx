@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Settings.module.css";
+import styles from "./Settings.module.scss";
 
 type PropsType = {
 
@@ -7,8 +7,8 @@ type PropsType = {
 
 const Settings: React.FC<PropsType> = (props) => {
     return (
-        <div className={s.Settings}>
-            <h1>Settings</h1>
+        <div className={styles.Settings}>
+            <h1>Coming soon...</h1>
         </div>
     )
 }

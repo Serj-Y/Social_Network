@@ -2,7 +2,7 @@ import React, { ChangeEvent } from "react";
 import styles from "./ProfileInfo.module.scss"
 import Preloader from "../../Common/Components/Preloader/Preloader";
 import ProfileStatusWidthHook from "./ProfileData/ProfileStatusWithHook";
-import userPhotoDefault from "../../Common/assets/img/4314581-200.png"
+import userPhotoDefault from "../../Common/assets/img/DefaultPhoto.png"
 import { useState } from "react";
 import ProfileDataReduxForm from "./ProfileData/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";

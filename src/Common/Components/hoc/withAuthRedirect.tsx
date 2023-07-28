@@ -18,7 +18,6 @@ const RedirectComponent: React.FC<PropsType>  = (props) => {
     
             if (!props.isAuth) 
             return <Redirect to={"/Login"}/>
-
             return <Component {...props}/>
         
     }

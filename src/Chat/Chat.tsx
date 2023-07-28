@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { AddMessageForm } from "./ChatMessage/AddMessageForm";
 import { Messages } from "./ChatMessage/Messages";
 import { useDispatch } from "react-redux";

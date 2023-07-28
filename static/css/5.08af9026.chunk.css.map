@@ -1,0 +1,1 @@
+{"version":3,"sources":["Dialogs.module.scss"],"names":[],"mappings":"AAAA,wBACI,iBAAA,CAaJ,4EACI,WAAA","file":"5.08af9026.chunk.css","sourcesContent":[".dialogs {\n    text-align: center;\n    // display: grid;\n    // grid-template-columns: 2fr 20fr;\n}\n\n.dialog {\n    padding: 5px;\n}\n\n.dialogsItem {\n    padding: 5px;\n}\n\n.messages {\n    padding: 5px;\n}"]}

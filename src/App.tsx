@@ -57,6 +57,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
           <Switch>
             <Route exact path="/" render={() => <Redirect to={"/profile"} />} />
             <Route path="/profile/:userId?" render={() => <SuspendedProfile />} />
+            <Route path='/profile/*' render={() => <SuspendedProfile />} />
             <Route path="/messages" render={() => <SuspendedDialogs />} />
             <Route path="/users" render={() => <UsersPage />} />
             <Route path="/chat" render={() => <SuspendedChat />} />

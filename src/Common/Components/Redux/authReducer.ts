@@ -19,7 +19,6 @@ let initialState: initialStateType = {
     login: null,
     isAuth: false,
     captchaUrl: null,
-
 };
 
 export const actions = {
@@ -37,6 +36,8 @@ export const actions = {
 type ActionsTypes = InferActionsTypes<typeof actions>
 type ThunkType = CommonThunkType<ActionsTypes>
 
+const myErrorMessage = "Sorry but Api on this website not support iOS devices and Safari on macOS. (This Api deprecated for Apple.) Ps: on other devices with android or other browser for macOS everything works."
+
 const authReducer = (state = initialState, action: ActionsTypes): initialStateType => {
     switch (action.type) {
         case "SET-USER-DATA":
@@ -50,17 +51,20 @@ const authReducer = (state = initialState, action: ActionsTypes): initialStateTy
     }
 }
 
-export const authData = (): ThunkType => async (dispatch) => {
+export const authData = (): ThunkType => async (dispatch: any) => {
     let response = await authApi.getLoginData()
-
     if (response.data.resultCode === 0) {
         let { id, email, login } = response.data.data;
         dispatch(actions.setAuthUserData(id, email, login, true));
+    } else {
+        if (response.data.resultCode === 1) {
+            dispatch(stopSubmit("login", { _error: myErrorMessage }))
+        }
     }
 }
 
 
-export const login = (email: string, password: string, rememberMe: boolean, captcha: string): ThunkType => async (dispatch: any) => {
+export const login = (email: string, password: string, rememberMe: boolean, captcha: string, ownMessage?: any): ThunkType => async (dispatch: any) => {
     let response = await authApi.login(email, password, rememberMe, captcha)
     if (response.data.resultCode === 0) {
         dispatch(authData())
@@ -88,6 +92,7 @@ export const logout = (): ThunkType => async (dispatch) => {
         dispatch(actions.setAuthUserData(null, null, null, false))
     }
 }
+
 
 
 export default authReducer;

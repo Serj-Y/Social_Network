@@ -1,16 +1,16 @@
-import { v1 } from "uuid"
-import { InferActionsTypes } from "./reduxStore"
+import { v1 } from "uuid";
+import { InferActionsTypes } from "./reduxStore";
 
 type DialogType = {
-  id: string
-  name: string
-}
+  id: string;
+  name: string;
+};
 type MessageType = {
-  id: string
-  message: string
-}
+  id: string;
+  message: string;
+};
 
-let initialState = {
+const initialState = {
   dialogs: [
     { id: v1(), name: "Serhii" },
     { id: v1(), name: "Anatolii" },
@@ -29,24 +29,26 @@ let initialState = {
 
 export const actions = {
   sendMessage: (newMessageBody: string) =>
-    ({ type: "SEND-MESSAGE", newMessageBody }) as const
-}
-type ActionsTypes = InferActionsTypes<typeof actions>
+    ({ type: "SEND-MESSAGE", newMessageBody } as const),
+};
+type ActionsTypes = InferActionsTypes<typeof actions>;
 
-export type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState;
 
-
-export const dialogReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
+export const dialogReducer = (
+  state = initialState,
+  action: ActionsTypes
+): InitialStateType => {
   switch (action.type) {
     case "SEND-MESSAGE":
       let body = action.newMessageBody;
       return {
         ...state,
-        messages: [...state.messages, { id: v1(), message: body }]
+        messages: [...state.messages, { id: v1(), message: body }],
       };
     default:
       return state;
   }
-}
+};
 
 export default dialogReducer;

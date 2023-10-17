@@ -15,49 +15,51 @@ import { AppStateType } from "./Common/Components/Redux/reduxStore";
 import { UsersPage } from "./Users/UsersContainer";
 import { Header } from "./Header/Header";
 
+const ProfileContainer = React.lazy(() => import("./Profile/ProfileContainer"));
+const DialogsContainer = React.lazy(() => import("./Dialogs/DialogsContainer"));
+const Chat = React.lazy(() => import("./Chat/ChatPage"));
 
-
-const ProfileContainer = React.lazy(() => import("./Profile/ProfileContainer"))
-const DialogsContainer = React.lazy(() => import("./Dialogs/DialogsContainer"))
-const Chat = React.lazy(() => import("./Chat/ChatPage"))
-
-
-type MapPropsType = ReturnType<typeof mapStateToProps>
+type MapPropsType = ReturnType<typeof mapStateToProps>;
 type DispatchPropsType = {
-  initializeApp: () => void
-}
+  initializeApp: () => void;
+};
 
-const SuspendedDialogs = widthSuspense(DialogsContainer)
-const SuspendedProfile = widthSuspense(ProfileContainer)
-const SuspendedChat = widthSuspense(Chat)
-
+const SuspendedDialogs = widthSuspense(DialogsContainer);
+const SuspendedProfile = widthSuspense(ProfileContainer);
+const SuspendedChat = widthSuspense(Chat);
 
 class App extends Component<MapPropsType & DispatchPropsType> {
   catchAllUnhandledErrors = (PromiseRejectionEvent: any) => {
-    alert(PromiseRejectionEvent)
-  }
+    alert(PromiseRejectionEvent);
+  };
   componentDidMount() {
     this.props.initializeApp();
-    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors)
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors)
+    window.removeEventListener(
+      "unhandledrejection",
+      this.catchAllUnhandledErrors
+    );
   }
 
   render() {
     if (!this.props.initialized) {
-      return <Preloader />
+      return <Preloader />;
     }
     return (
-      <div className="app-wrapper" >
+      <div className="app-wrapper">
         <Header />
         <Nav />
         <div className="app-wrapper-content">
           <Switch>
             <Route exact path="/" render={() => <Redirect to={"/profile"} />} />
-            <Route path="/profile/:userId?" render={() => <SuspendedProfile />} />
-            <Route path='/profile/*' render={() => <SuspendedProfile />} />
+            <Route
+              path="/profile/:userId?"
+              render={() => <SuspendedProfile />}
+            />
+            <Route path="/profile/*" render={() => <SuspendedProfile />} />
             <Route path="/messages" render={() => <SuspendedDialogs />} />
             <Route path="/users" render={() => <UsersPage />} />
             <Route path="/chat" render={() => <SuspendedChat />} />
@@ -68,29 +70,12 @@ class App extends Component<MapPropsType & DispatchPropsType> {
           </Switch>
         </div>
       </div>
-    )
-  };
+    );
+  }
 }
 
 const mapStateToProps = (state: AppStateType) => ({
   initialized: state.app.initialized,
-
-})
-
-// let AppContainer = compose<React.ComponentType>(
-//   withRouter,
-//   connect(mapStateToProps, { initializeApp }))(App);
-
-// const MyApp: React.FC = () => {
-//   return <BrowserRouter>
-//     <Provider store={store}>
-//       <AppContainer />
-//     </Provider>
-//   </BrowserRouter>
-// }
-
-// export default MyApp;
+});
 
 export default compose(connect(mapStateToProps, { initializeApp }))(App);
-
-

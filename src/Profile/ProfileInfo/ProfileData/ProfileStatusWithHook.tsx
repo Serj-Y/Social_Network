@@ -1,57 +1,54 @@
-
 import React, { useEffect, useState, ChangeEvent } from "react";
-import styles from "../ProfileInfo.module.scss"
+import styles from "../ProfileInfo.module.scss";
 
 type PropsType = {
-    status: string
-    updateStatus: (status: string) => void
-}
+  status: string;
+  updateStatus: (status: string) => void;
+};
 
+const ProfileStatusWidthHook: React.FC<PropsType> = React.memo((props) => {
+  let [editMode, setEditMode] = useState(false);
+  let [status, setStatus] = useState(props.status);
 
-const ProfileStatusWidthHook: React.FC<PropsType> = React.memo(props => {
-    let [editMode, setEditMode] = useState(false);
-    let [status, setStatus] = useState(props.status);
+  useEffect(() => {
+    setStatus(props.status);
+  }, [props.status]);
 
-    useEffect(() => {
-        setStatus(props.status);
-    }, [props.status])
+  const activateEditMode = () => {
+    setEditMode(true);
+  };
 
-    const activateEditMode = () => {
-        setEditMode(true)
-    }
+  const deactivateEditMode = () => {
+    setEditMode(false);
+    props.updateStatus(status);
+  };
 
-    const deactivateEditMode = () => {
-        setEditMode(false);
-        props.updateStatus(status)
-    }
+  const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setStatus(e.currentTarget.value);
+  };
 
-    const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setStatus(e.currentTarget.value)
-    }
-
-    return (
-        <div>
-            {!editMode &&
-                <div className={styles.status} > 
-                   <b>Status</b>:
-                    <span 
-                    onClick={activateEditMode}> 
-                    {  props.status || "Empty Status-Click To Edit"}
-                    </span>
-                </div>
-            }
-            {editMode &&
-                <div>
-                    <input
-                        onChange={onStatusChange}
-                        onBlur={deactivateEditMode}
-                        autoFocus={true}
-                        value={status}
-                    />
-                </div>
-            }
+  return (
+    <div>
+      {!editMode && (
+        <div className={styles.status}>
+          <b>Status</b>:
+          <span onClick={activateEditMode}>
+            {props.status || "Empty Status-Click To Edit"}
+          </span>
         </div>
-    )
-})
+      )}
+      {editMode && (
+        <div>
+          <input
+            onChange={onStatusChange}
+            onBlur={deactivateEditMode}
+            autoFocus={true}
+            value={status}
+          />
+        </div>
+      )}
+    </div>
+  );
+});
 
-export default ProfileStatusWidthHook
+export default ProfileStatusWidthHook;
